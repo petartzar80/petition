@@ -29,11 +29,11 @@ app.post("/petition", (req, res) => {
     res.redirect("thanks");
 });
 
-app.get("thanks", (req, res) => {
+app.get("/thanks", (req, res) => {
     res.render("thanks");
 });
 
-app.get("signers", (req, res) => {
+app.get("/signers", (req, res) => {
     res.render("signers");
 });
 

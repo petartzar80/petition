@@ -50,11 +50,13 @@ const first = document.getElementById("first");
 console.log(first);
 const last = document.getElementById("last");
 console.log(last);
+const signature = document.getElementById("signature");
 
 button.on("click", function() {
     console.log("clicking");
-    console.log("first: ", first.value);
-    console.log("last: ", last.value);
+    // console.log("first: ", first.value);
+    // console.log("last: ", last.value);
     let canvasValue = sigCanvas.toDataURL();
-    console.log("signature: ", canvasValue);
+    signature.value = canvasValue;
+    console.log("signature: ", signature.value);
 });

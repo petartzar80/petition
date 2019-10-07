@@ -1,10 +1,11 @@
-<div class="inputField">
+<form method="POST" class="inputField">
     <div class="textInput">
         <input type="text" name="first" id="first">
         <input type="text" name="last" id="last">
     </div>
     <div class="sigInput">
+        <input type="hidden" name="signature" id="signature">
         <canvas id="sigCanvas" width="500" height="150"></canvas>
     </div>
-    <button type="button" name="button" id="submit">Submit</button>
-</div>
+    <button name="button" id="submit">Submit</button>
+</form>

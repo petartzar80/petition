@@ -2,13 +2,15 @@ const spicedPg = require("spiced-pg");
 
 const db = spicedPg(`postgres:postgres:postgres@localhost:5432/petition`);
 
-// module.export.getFullName = (first, last) => {
-//     return db.query(
-//         `SELECT * FROM signatures
-//         WHERE first = $1 AND last = $2`,
-//         [first, last]
-//     );
-// };
+module.exports.getFullName = () => {
+    return db.query(`SELECT first, last FROM signatures`);
+};
+
+module.exports.showSignature = idCookie => {
+    return db.query(
+        `SELECT first, signature FROM signatures WHERE id = ${idCookie}`
+    );
+};
 
 exports.addInfo = (first, last, signature) => {
     return db.query(

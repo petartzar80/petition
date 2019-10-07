@@ -52,3 +52,40 @@ let decode = atob('zR1o78jFS4phDz5oToMdm0bp5Kw');
 ```
 
 put the data url into an img tag to show
+
+
+
+**vulnerability**
+
+pieces of code & cookies
+
+--- any input from users should be prevented to be code that runs
+
+--- strings that can become code that runs
+
+
+
+danger: eval, setTimeout, function constructor
+
+
+
+frames are like browsers in browsers
+
+<iframe src="spiced-academy"> </iframe>
+
+
+
+
+```
+
+```
+
+a way
+
+```javascript
+res.cookie('name', 'value', {
+    sameSite: true
+});
+```
+
+this still doesn't work on all browsers

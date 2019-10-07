@@ -2,7 +2,8 @@ const express = require("express");
 const app = express();
 const hb = require("express-handlebars");
 const cookieSession = require("cookie-session");
-const { addInfo } = require("./db");
+const { addInfo, showSignature, getFullName } = require("./db");
+const csurf = require("csurf");
 
 app.engine("handlebars", hb());
 app.set("view engine", "handlebars");
@@ -28,7 +29,16 @@ app.use(
     })
 );
 
+app.use(csurf());
+
 app.use(express.static("./public"));
+
+// against clickjacking
+app.use((req, res, next) => {
+    res.set("x-frame-options", "DENY");
+    res.locals.csrfToken = req.csrfToken();
+    next();
+});
 
 app.get("/", (req, res) => {
     console.log("req session in route ", req.session);
@@ -47,6 +57,7 @@ app.post("/petition", (req, res) => {
     console.log(signature);
     addInfo(firstName, lastName, signature)
         .then(({ rows }) => {
+            console.log("rows: ", rows);
             req.session.userId = rows[0].id;
             res.redirect("/thanks");
         })
@@ -57,23 +68,34 @@ app.post("/petition", (req, res) => {
 });
 
 app.get("/thanks", (req, res) => {
-    res.render("thanks");
+    let idCookie = req.session.userId;
+    console.log("ID cookie: ", idCookie);
+    showSignature(idCookie).then(({ rows }) => {
+        console.log("THANKS ROWS first: ", rows[0].first);
+        // res.render("thanks");
+        res.render("thanks", {
+            first: rows[0].first,
+            signature: rows[0].signature
+        });
+    });
 });
 
 app.get("/signers", (req, res) => {
-    res.render("signers");
+    getFullName().then(({ rows }) => {
+        res.render("signers", { rows });
+    });
 });
 
-app.get("/test", (req, res) => {
-    req.session.sigId = 10;
-    console.log("req. session in test: ", req.session);
-    res.redirect("/");
-});
-
-app.get("*", (req, res) => {
-    req.session.cohort = "coriander";
-    res.redirect("/");
-});
+// app.get("/test", (req, res) => {
+//     req.session.sigId = 10;
+//     console.log("req. session in test: ", req.session);
+//     res.redirect("/");
+// });
+//
+// app.get("*", (req, res) => {
+//     req.session.cohort = "coriander";
+//     res.redirect("/");
+// });
 
 app.get("/logout", (req, res) => {
     req.session = null;

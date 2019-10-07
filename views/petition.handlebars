@@ -5,6 +5,7 @@
     </div>
     <div class="sigInput">
         <input type="hidden" name="signature" id="signature">
+        <input type="hidden" name="_csrf" value="{{csrfToken}}">
         <canvas id="sigCanvas" width="500" height="150"></canvas>
     </div>
     <button name="button" id="submit">Submit</button>

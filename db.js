@@ -7,9 +7,16 @@ module.exports.getFullName = () => {
 };
 
 module.exports.showSignature = idCookie => {
-    return db.query(
-        `SELECT first, signature FROM signatures WHERE id = ${idCookie}`
-    );
+    return db.query(`SELECT first, signature FROM signatures WHERE id = $1`, [
+        idCookie
+    ]);
+    // return db.query(
+    //     `SELECT first, signature FROM signatures WHERE id = ${idCookie}`
+    // );
+};
+
+module.exports.getNumSigners = () => {
+    return db.query(`SELECT COUNT(*) FROM signatures`);
 };
 
 exports.addInfo = (first, last, signature) => {

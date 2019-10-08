@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const hb = require("express-handlebars");
 const cookieSession = require("cookie-session");
-const { addInfo, showSignature, getFullName } = require("./db");
+const { addInfo, showSignature, getFullName, getNumSigners } = require("./db");
 const csurf = require("csurf");
 
 app.engine("handlebars", hb());
@@ -69,15 +69,27 @@ app.post("/petition", (req, res) => {
 
 app.get("/thanks", (req, res) => {
     let idCookie = req.session.userId;
+    let renderingObject = {};
     console.log("ID cookie: ", idCookie);
-    showSignature(idCookie).then(({ rows }) => {
-        console.log("THANKS ROWS first: ", rows[0].first);
-        // res.render("thanks");
-        res.render("thanks", {
-            first: rows[0].first,
-            signature: rows[0].signature
-        });
-    });
+    showSignature(idCookie)
+        .then(({ rows }) => {
+            console.log("THANKS ROWS first: ", rows[0].first);
+            renderingObject.first = rows[0].first;
+            renderingObject.signature = rows[0].signature;
+            // res.render("thanks");
+            // res.render("thanks", {
+            //     first: rows[0].first,
+            //     signature: rows[0].signature
+            // });
+        })
+        .then(
+            getNumSigners().then(({ rows }) => {
+                console.log("getnum rows: ", rows[0].count);
+                renderingObject.count = rows[0].count;
+                console.log("rend object: ", renderingObject);
+                res.render("thanks", renderingObject);
+            })
+        );
 });
 
 app.get("/signers", (req, res) => {

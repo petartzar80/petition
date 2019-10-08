@@ -1,3 +1,4 @@
+
 <div class="registration">
     <h1>Register here</h1>
     <form method="POST" class="inputField">
@@ -12,5 +13,9 @@
             <input type="text" name="password" id="password">
         </div>
         <button name="button" id="submit">SIGN UP</button>
+        <p>If already a member, do <a href="/login">log in</a>.</p>
+        {{#if error}}
+               <div class="error"> Oops! something went wrong</div>
+           {{/if}}
     </form>
 </div>

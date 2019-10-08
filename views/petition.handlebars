@@ -1,3 +1,4 @@
+
 <form method="POST" class="inputField">
     <div class="textInput">
         <input type="text" name="first" id="first">
@@ -9,4 +10,7 @@
         <canvas id="sigCanvas" width="500" height="150"></canvas>
     </div>
     <button name="button" id="submit">Submit</button>
+    {{#if error}}
+           <div class ="error"> Oops! something went wrong</div>
+       {{/if}}
 </form>

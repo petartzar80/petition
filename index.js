@@ -50,7 +50,7 @@ app.use(express.static("./public"));
 
 app.get("/", (req, res) => {
     console.log("req session in route ", req.session);
-    res.redirect("/petition");
+    res.redirect("/registration");
 });
 
 app.get("/registration", (req, res) => {
@@ -72,10 +72,15 @@ app.post("/registration", (req, res) => {
 
         .then(password => {
             console.log("testing ", password);
-            register(firstName, lastName, email, password).then(({ rows }) => {
-                req.session.regId = rows[0].id;
-                res.redirect("/petition");
-            });
+            register(firstName, lastName, email, password)
+                .then(({ rows }) => {
+                    req.session.regId = rows[0].id;
+                    res.redirect("/petition");
+                })
+                .catch(err => {
+                    console.log(err);
+                    res.render("registration", { error: true });
+                });
         });
 });
 
@@ -86,6 +91,7 @@ app.get("/login", (req, res) => {
 app.post("/login", (req, res) => {
     let email = req.body.email;
     // let logPass = "";
+    let id;
     let logPass = req.body.password;
     getPassword(email)
         .then(({ rows }) => {
@@ -94,17 +100,23 @@ app.post("/login", (req, res) => {
             console.log("Top received ID: ", receivedId);
             console.log("receivedPass: ", receivedPass);
             let isMatch = compare(logPass, receivedPass);
-            let returnArray = [isMatch, receivedId];
-            return returnArray;
+            id = receivedId;
+            // let returnArray = [isMatch, receivedId];
+            // return returnArray;
+            return isMatch;
         })
-        .then(returnArray => {
-            if (returnArray[0]) {
-                console.log("New cookie: ", returnArray[1]);
-                req.session.regId = returnArray[1];
+        .then(isMatch => {
+            if (isMatch) {
+                console.log("New cookie: ", id);
+                req.session.regId = id;
                 res.redirect("/petition");
             } else {
-                res.render("petition", { error: true });
+                res.render("login", { error: true });
             }
+        })
+        .catch(err => {
+            console.log(err);
+            res.render("login", { error: true });
         });
     // console.log("Is Match: ", isMatch));
     // hash(req.body.password)
@@ -170,13 +182,22 @@ app.get("/thanks", (req, res) => {
                 console.log("rend object: ", renderingObject);
                 res.render("thanks", renderingObject);
             })
-        );
+        )
+        .catch(err => {
+            console.log(err);
+            res.render("thanks", { error: true });
+        });
 });
 
 app.get("/signers", (req, res) => {
-    getFullName().then(({ rows }) => {
-        res.render("signers", { rows });
-    });
+    getFullName()
+        .then(({ rows }) => {
+            res.render("signers", { rows });
+        })
+        .catch(err => {
+            console.log(err);
+            res.render("signers", { error: true });
+        });
 });
 
 // app.get("/test", (req, res) => {

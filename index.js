@@ -2,8 +2,15 @@ const express = require("express");
 const app = express();
 const hb = require("express-handlebars");
 const cookieSession = require("cookie-session");
-const { addInfo, showSignature, getFullName, getNumSigners } = require("./db");
+const {
+    addInfo,
+    showSignature,
+    getFullName,
+    getNumSigners,
+    register
+} = require("./db");
 const csurf = require("csurf");
+const { hash, compare } = require("./passwordModules");
 
 app.engine("handlebars", hb());
 app.set("view engine", "handlebars");
@@ -29,21 +36,57 @@ app.use(
     })
 );
 
-app.use(csurf());
+// app.use(csurf());
 
 app.use(express.static("./public"));
 
 // against clickjacking
-app.use((req, res, next) => {
-    res.set("x-frame-options", "DENY");
-    res.locals.csrfToken = req.csrfToken();
-    next();
-});
+// app.use((req, res, next) => {
+//     res.set("x-frame-options", "DENY");
+//     res.locals.csrfToken = req.csrfToken();
+//     next();
+// });
 
 app.get("/", (req, res) => {
     console.log("req session in route ", req.session);
     res.redirect("/petition");
 });
+
+app.get("/registration", (req, res) => {
+    res.render("registration");
+});
+
+app.post("/registration", (req, res) => {
+    let firstName = req.body.first;
+    let lastName = req.body.last;
+    let email = req.body.email;
+    let origPswd = req.body.password;
+    let password = "";
+    // console.log(firstName);
+    // console.log(lastName);
+    // console.log(email);
+    hash(origPswd)
+        .then(result => {
+            console.log("Hash result: ", result);
+            password = result;
+            return password;
+        })
+        .then(password => {
+            console.log("Hashed password: ", password);
+        })
+        .then(
+            register(firstName, lastName, email, password).then(({ rows }) => {
+                console.log("testing password: ", password);
+                console.log("register rows: ", rows);
+                console.log("returned password: ", rows[0].password);
+            })
+        );
+});
+
+app.get("/login", (req, res) => {
+    res.render("login");
+});
+
 app.get("/petition", (req, res) => {
     res.render("petition");
 });
@@ -52,9 +95,9 @@ app.post("/petition", (req, res) => {
     let firstName = req.body.first;
     let lastName = req.body.last;
     let signature = req.body.signature;
-    console.log(firstName);
-    console.log(lastName);
-    console.log(signature);
+    // console.log(firstName);
+    // console.log(lastName);
+    // console.log(signature);
     addInfo(firstName, lastName, signature)
         .then(({ rows }) => {
             console.log("rows: ", rows);

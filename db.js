@@ -30,6 +30,17 @@ exports.addInfo = (first, last, signature) => {
     );
 };
 
+exports.register = (first, last, email, password) => {
+    return db.query(
+        `
+        INSERT INTO users (first, last, email, password)
+        VALUES ($1, $2, $3, $4)
+        RETURNING id, first, last, email, password
+        `,
+        [first, last, email, password]
+    );
+};
+
 `SELECT signature FROM signatures WHERE id = $1`;
 // for thanks db query
 

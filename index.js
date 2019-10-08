@@ -90,10 +90,23 @@ app.post("/login", (req, res) => {
     getPassword(email)
         .then(({ rows }) => {
             let receivedPass = rows[0].password;
+            let receivedId = rows[0].id;
+            console.log("Top received ID: ", receivedId);
             console.log("receivedPass: ", receivedPass);
-            return compare(logPass, receivedPass);
+            let isMatch = compare(logPass, receivedPass);
+            let returnArray = [isMatch, receivedId];
+            return returnArray;
         })
-        .then(isMatch => console.log("Is Match: ", isMatch));
+        .then(returnArray => {
+            if (returnArray[0]) {
+                console.log("New cookie: ", returnArray[1]);
+                req.session.regId = returnArray[1];
+                res.redirect("/petition");
+            } else {
+                res.render("petition", { error: true });
+            }
+        });
+    // console.log("Is Match: ", isMatch));
     // hash(req.body.password)
     //     .then(result => {
     //         logPass = result;

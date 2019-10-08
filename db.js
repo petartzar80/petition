@@ -44,7 +44,7 @@ exports.register = (first, last, email, password) => {
 exports.getPassword = email => {
     return db.query(
         `
-        SELECT password FROM users WHERE email = $1
+        SELECT password, id FROM users WHERE email = $1
         `,
         [email]
     );

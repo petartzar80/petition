@@ -19,14 +19,14 @@ module.exports.getNumSigners = () => {
     return db.query(`SELECT COUNT(*) FROM signatures`);
 };
 
-exports.addInfo = (first, last, signature) => {
+exports.addInfo = (first, last, signature, userId) => {
     return db.query(
         `
-        INSERT INTO signatures (first, last, signature)
-        VALUES ($1, $2, $3)
+        INSERT INTO signatures (first, last, signature, user_id)
+        VALUES ($1, $2, $3, $4)
         RETURNING id
         `,
-        [first, last, signature]
+        [first, last, signature, userId]
     );
 };
 

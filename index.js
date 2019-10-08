@@ -132,10 +132,11 @@ app.post("/petition", (req, res) => {
     let firstName = req.body.first;
     let lastName = req.body.last;
     let signature = req.body.signature;
+    let userId = req.session.regId;
     // console.log(firstName);
     // console.log(lastName);
     // console.log(signature);
-    addInfo(firstName, lastName, signature)
+    addInfo(firstName, lastName, signature, userId)
         .then(({ rows }) => {
             console.log("rows: ", rows);
             req.session.userId = rows[0].id;

@@ -7,7 +7,8 @@ const {
     showSignature,
     getFullName,
     getNumSigners,
-    register
+    register,
+    getPassword
 } = require("./db");
 const csurf = require("csurf");
 const { hash, compare } = require("./passwordModules");
@@ -62,30 +63,52 @@ app.post("/registration", (req, res) => {
     let email = req.body.email;
     let origPswd = req.body.password;
     let password = "";
-    // console.log(firstName);
-    // console.log(lastName);
-    // console.log(email);
+
     hash(origPswd)
         .then(result => {
-            console.log("Hash result: ", result);
             password = result;
             return password;
         })
-        // .then(password => {
-        //     console.log("Hashed password: ", password);
-        // })
+
         .then(password => {
             console.log("testing ", password);
             register(firstName, lastName, email, password).then(({ rows }) => {
-                // console.log("testing password: ", password);
-                console.log("register rows: ", rows);
-                console.log("returned password: ", rows[0].password);
+                req.session.regId = rows[0].id;
+                res.redirect("/petition");
             });
         });
 });
 
 app.get("/login", (req, res) => {
     res.render("login");
+});
+
+app.post("/login", (req, res) => {
+    let email = req.body.email;
+    // let logPass = "";
+    let logPass = req.body.password;
+    getPassword(email)
+        .then(({ rows }) => {
+            let receivedPass = rows[0].password;
+            console.log("receivedPass: ", receivedPass);
+            return compare(logPass, receivedPass);
+        })
+        .then(isMatch => console.log("Is Match: ", isMatch));
+    // hash(req.body.password)
+    //     .then(result => {
+    //         logPass = result;
+    //         console.log("logPass hashed: ", logPass);
+    //         return logPass;
+    //     })
+    //     .then(logPass => {
+    //         getPassword(email)
+    //             .then(({ rows }) => {
+    //                 let receivedPass = rows[0].password;
+    //                 console.log("receivedPass: ", receivedPass);
+    //                 return compare(logPass, receivedPass);
+    //             })
+    //             .then(isMatch => console.log("Is Match: ", isMatch));
+    //     });
 });
 
 app.get("/petition", (req, res) => {

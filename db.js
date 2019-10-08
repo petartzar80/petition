@@ -35,9 +35,18 @@ exports.register = (first, last, email, password) => {
         `
         INSERT INTO users (first, last, email, password)
         VALUES ($1, $2, $3, $4)
-        RETURNING *
+        RETURNING id
         `,
         [first, last, email, password]
+    );
+};
+
+exports.getPassword = email => {
+    return db.query(
+        `
+        SELECT password FROM users WHERE email = $1
+        `,
+        [email]
     );
 };
 

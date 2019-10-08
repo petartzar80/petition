@@ -71,16 +71,17 @@ app.post("/registration", (req, res) => {
             password = result;
             return password;
         })
+        // .then(password => {
+        //     console.log("Hashed password: ", password);
+        // })
         .then(password => {
-            console.log("Hashed password: ", password);
-        })
-        .then(
+            console.log("testing ", password);
             register(firstName, lastName, email, password).then(({ rows }) => {
-                console.log("testing password: ", password);
+                // console.log("testing password: ", password);
                 console.log("register rows: ", rows);
                 console.log("returned password: ", rows[0].password);
-            })
-        );
+            });
+        });
 });
 
 app.get("/login", (req, res) => {

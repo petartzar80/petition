@@ -10,7 +10,7 @@ const {
     register,
     getPassword,
     addProfile,
-    getCity,
+    getCities,
     getIfSigned
 } = require("./db");
 const csurf = require("csurf");
@@ -233,6 +233,7 @@ app.get("/thanks", (req, res) => {
 app.get("/signers", (req, res) => {
     getFullName()
         .then(({ rows }) => {
+            console.log("signers rows: ", rows);
             res.render("signers", { rows });
         })
         .catch(err => {
@@ -241,17 +242,17 @@ app.get("/signers", (req, res) => {
         });
 });
 
-// app.get("/signers/:city", (req, res) => {
-//     let city = req.body.city;
-//     getCity(city)
-//         .then(({ rows }) => {
-//             res.render("signers", { rows });
-//         })
-//         .catch(err => {
-//             console.log(err);
-//             res.render("signers", { error: true });
-//         });
-// });
+app.get("/signers/:city", (req, res) => {
+    const { city } = req.params;
+    getCities(city)
+        .then(({ rows }) => {
+            res.render("signers", { rows });
+        })
+        .catch(err => {
+            console.log(err);
+            res.render("signers", { error: true });
+        });
+});
 
 // app.get("/test", (req, res) => {
 //     req.session.sigId = 10;

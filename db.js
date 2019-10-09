@@ -6,7 +6,7 @@ const db = spicedPg(
 );
 
 module.exports.getFullName = () => {
-    return db.query(`SELECT first as firstName, last as lastName, age as ageInt, city as residence, homepage as url FROM signatures
+    return db.query(`SELECT first as first_name, last as last_name, age as age_int, city as residence, homepage as url FROM signatures
     LEFT JOIN users
     ON users.id = signatures.user_id
     LEFT JOIN user_profiles
@@ -16,9 +16,11 @@ module.exports.getFullName = () => {
 
 module.exports.getCities = city => {
     return db.query(
-        `SELECT first, last, age, city, homepage FROM users
-    JOIN user_profiles
-    ON users.id = user_profiles.user_id
+        `SELECT first as first_name, last as last_name, age as age_int, city as residence, homepage as url FROM signatures
+        LEFT JOIN users
+        ON users.id = signatures.user_id
+        LEFT JOIN user_profiles
+        ON users.id = user_profiles.user_id
     WHERE LOWER (city) = LOWER ($1)`,
         [city]
     );

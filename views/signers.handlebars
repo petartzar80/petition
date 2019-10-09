@@ -5,7 +5,12 @@
     <h1>Here be signers</h1>
     {{#rows}}
         <ul>
-            <li>first name: {{firstName}} last name: {{lastName}} age: {{ageInt}} city: {{residence}} homepage: {{url}}</li>
+            {{#if url}}
+            <li>first name: <a href={{url}}>{{first_name}}</a>   last name: {{last_name}} age: {{age_int}} city: {{residence}} </li>
+            {{else}}
+            <li>first name: {{first_name}}  last name: {{last_name}} age: {{age_int}} city: {{residence}} </li>
+            {{/if}}
+            <!-- <li>first name: {{firstName}}  last name: {{lastName}} age: {{ageInt}} city: {{residence}} </li> -->
         </ul>
     {{/rows}}
 </div>

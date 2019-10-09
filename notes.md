@@ -121,3 +121,12 @@ leave out the empty row if there's no input
 in post profile - if it doesn't start with http or https or // -- throw it out
 
 don't take link as is because it can be a javascript url
+
+
+
+the query that is finding by email to 
+
+
+
+**HEROKU**
+

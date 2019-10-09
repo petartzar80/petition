@@ -6,7 +6,9 @@ const db = spicedPg(
 );
 
 module.exports.getFullName = () => {
-    return db.query(`SELECT first, last FROM signatures`);
+    return db.query(`SELECT first, last, age, city, homepage FROM signatures
+    JOIN user_profiles
+    ON signatures.user_id = user_profiles.user_id`);
 };
 
 module.exports.showSignature = idCookie => {

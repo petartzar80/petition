@@ -9,10 +9,13 @@ const {
     getNumSigners,
     register,
     getPassword,
-    addProfile
+    addProfile,
+    getCity,
+    getIfSigned
 } = require("./db");
 const csurf = require("csurf");
 const { hash, compare } = require("./passwordModules");
+let isSigned;
 
 app.engine("handlebars", hb());
 app.set("view engine", "handlebars");
@@ -51,7 +54,14 @@ app.use((req, res, next) => {
 
 app.get("/", (req, res) => {
     console.log("req session in route ", req.session);
-    res.redirect("/registration");
+    if (req.session.regId) {
+        res.redirect("/petition");
+    } else {
+        res.redirect("/registration");
+    }
+    // query if signed, redirect to thanks
+    // if logged redirect to petition
+    // else redirect to registration
 });
 
 app.get("/registration", (req, res) => {
@@ -127,7 +137,6 @@ app.post("/login", (req, res) => {
         })
         .then(isMatch => {
             if (isMatch) {
-                console.log("New cookie: ", id);
                 req.session.regId = id;
                 res.redirect("/petition");
             } else {
@@ -157,21 +166,32 @@ app.post("/login", (req, res) => {
 });
 
 app.get("/petition", (req, res) => {
-    res.render("petition");
+    let regId = req.session.regId;
+    getIfSigned(regId).then(({ rows }) => {
+        if (rows[0]) {
+            console.log(rows);
+            res.redirect("/thanks");
+        } else {
+            console.log("havent signed!");
+            res.render("petition");
+        }
+    });
+    // res.render("petition");
 });
 
 app.post("/petition", (req, res) => {
-    let firstName = req.body.first;
-    let lastName = req.body.last;
+    // let firstName = req.body.first;
+    // let lastName = req.body.last;
     let signature = req.body.signature;
-    let userId = req.session.regId;
+    let regId = req.session.regId;
+
     // console.log(firstName);
     // console.log(lastName);
     // console.log(signature);
-    addInfo(firstName, lastName, signature, userId)
+    addInfo(signature, regId)
         .then(({ rows }) => {
             console.log("rows: ", rows);
-            req.session.userId = rows[0].id;
+            req.session.signedId = rows[0].id;
             res.redirect("/thanks");
         })
         .catch(err => {
@@ -181,12 +201,13 @@ app.post("/petition", (req, res) => {
 });
 
 app.get("/thanks", (req, res) => {
-    let idCookie = req.session.userId;
+    let idCookie = req.session.regId;
     let renderingObject = {};
     console.log("ID cookie: ", idCookie);
     showSignature(idCookie)
         .then(({ rows }) => {
-            console.log("THANKS ROWS first: ", rows[0].first);
+            console.log("thanks rows: ", rows);
+            // console.log("THANKS ROWS first: ", rows[0].first);
             renderingObject.first = rows[0].first;
             renderingObject.signature = rows[0].signature;
             // res.render("thanks");
@@ -219,6 +240,18 @@ app.get("/signers", (req, res) => {
             res.render("signers", { error: true });
         });
 });
+
+// app.get("/signers/:city", (req, res) => {
+//     let city = req.body.city;
+//     getCity(city)
+//         .then(({ rows }) => {
+//             res.render("signers", { rows });
+//         })
+//         .catch(err => {
+//             console.log(err);
+//             res.render("signers", { error: true });
+//         });
+// });
 
 // app.get("/test", (req, res) => {
 //     req.session.sigId = 10;

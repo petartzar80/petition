@@ -6,13 +6,26 @@ const db = spicedPg(
 );
 
 module.exports.getFullName = () => {
-    return db.query(`SELECT first, last, age, city, homepage FROM signatures
+    return db.query(`SELECT first as firstName, last as lastName, age as ageInt, city as residence, homepage as url FROM signatures
+    LEFT JOIN users
+    ON users.id = signatures.user_id
+    LEFT JOIN user_profiles
+    ON users.id = user_profiles.user_id
+    `);
+};
+
+module.exports.getCities = city => {
+    return db.query(
+        `SELECT first, last, age, city, homepage FROM users
     JOIN user_profiles
-    ON signatures.user_id = user_profiles.user_id`);
+    ON users.id = user_profiles.user_id
+    WHERE LOWER (city) = LOWER ($1)`,
+        [city]
+    );
 };
 
 module.exports.showSignature = idCookie => {
-    return db.query(`SELECT first, signature FROM signatures WHERE id = $1`, [
+    return db.query(`SELECT signature FROM signatures WHERE user_id = $1`, [
         idCookie
     ]);
     // return db.query(
@@ -24,14 +37,23 @@ module.exports.getNumSigners = () => {
     return db.query(`SELECT COUNT(*) FROM signatures`);
 };
 
-exports.addInfo = (first, last, signature, userId) => {
+exports.addInfo = (signature, userId) => {
     return db.query(
         `
-        INSERT INTO signatures (first, last, signature, user_id)
-        VALUES ($1, $2, $3, $4)
+        INSERT INTO signatures (signature, user_id)
+        VALUES ($1, $2)
         RETURNING id
         `,
-        [first, last, signature, userId]
+        [signature, userId]
+    );
+};
+
+exports.getIfSigned = id => {
+    return db.query(
+        `
+        SELECT user_id FROM signatures WHERE id = $1
+        `,
+        [id]
     );
 };
 

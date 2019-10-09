@@ -37,16 +37,16 @@ app.use(
     })
 );
 
-// app.use(csurf());
+app.use(csurf());
 
 app.use(express.static("./public"));
 
 // against clickjacking
-// app.use((req, res, next) => {
-//     res.set("x-frame-options", "DENY");
-//     res.locals.csrfToken = req.csrfToken();
-//     next();
-// });
+app.use((req, res, next) => {
+    res.set("x-frame-options", "DENY");
+    res.locals.csrfToken = req.csrfToken();
+    next();
+});
 
 app.get("/", (req, res) => {
     console.log("req session in route ", req.session);

@@ -4,6 +4,8 @@
 <div class="login">
     <h1>Logging in</h1>
     <form method="POST" class="inputField">
+        <input type="hidden" name="_csrf" value="{{csrfToken}}">
+        
         <div class="textInput">
             <p>Email</p>
             <input type="text" name="email" id="email">

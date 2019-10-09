@@ -2,6 +2,8 @@
 <div class="registration">
     <h1>Register here</h1>
     <form method="POST" class="inputField">
+        <input type="hidden" name="_csrf" value="{{csrfToken}}">
+        
         <div class="textInput">
             <p>First Name</p>
             <input type="text" name="first" id="first">

@@ -89,3 +89,35 @@ res.cookie('name', 'value', {
 ```
 
 this still doesn't work on all browsers
+
+
+
+
+
+
+
+if you're logged out only reg & login
+
+reg route - insert a row in a table
+
+selct from the sig table by usr id - find out if they have signed
+
+
+
+**joining tables**
+
+query runs through a temporary table
+
+
+
+for the city the same template as for signers
+
+we pull the id from registration (users)and insert it onto new table (userprofiles)
+
+leave out the empty row if there's no input
+
+
+
+in post profile - if it doesn't start with http or https or // -- throw it out
+
+don't take link as is because it can be a javascript url

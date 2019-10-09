@@ -8,7 +8,8 @@ const {
     getFullName,
     getNumSigners,
     register,
-    getPassword
+    getPassword,
+    addProfile
 } = require("./db");
 const csurf = require("csurf");
 const { hash, compare } = require("./passwordModules");
@@ -75,13 +76,28 @@ app.post("/registration", (req, res) => {
             register(firstName, lastName, email, password)
                 .then(({ rows }) => {
                     req.session.regId = rows[0].id;
-                    res.redirect("/petition");
+                    res.redirect("/profile");
                 })
                 .catch(err => {
                     console.log(err);
                     res.render("registration", { error: true });
                 });
         });
+});
+
+app.get("/profile", (req, res) => {
+    res.render("profile");
+});
+
+app.post("/profile", (req, res) => {
+    let age = req.body.age;
+    let city = req.body.city;
+    let homepage = req.body.homepage;
+    let userId = req.session.regId;
+    console.log("age: ", age, ", city: ", city, ", homepage: ", homepage);
+    addProfile(age, city, homepage, userId).then(() => {
+        res.redirect("/petition");
+    });
 });
 
 app.get("/login", (req, res) => {

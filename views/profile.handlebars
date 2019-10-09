@@ -1,0 +1,19 @@
+<div class="registration">
+    <h1>Profile yrslf</h1>
+    <form method="POST" class="inputField">
+        <input type="hidden" name="_csrf" value="{{csrfToken}}">
+
+        <div class="textInput">
+            <p>Age</p>
+            <input type="text" name="age" id="age">
+            <p>City</p>
+            <input type="text" name="city" id="city">
+            <p>Homepage</p>
+            <input type="text" name="homepage" id="homepage">
+        </div>
+        <button name="button" id="submit">CONTINUE</button>
+        {{#if error}}
+               <div class="error"> Oops! something went wrong</div>
+           {{/if}}
+    </form>
+</div>

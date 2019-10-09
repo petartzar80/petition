@@ -50,6 +50,17 @@ exports.getPassword = email => {
     );
 };
 
+exports.addProfile = (age, city, homepage, userId) => {
+    return db.query(
+        `
+        INSERT INTO user_profiles (age, city, homepage, user_id)
+        VALUES ($1, $2, $3, $4)
+        RETURNING *
+        `,
+        [age, city, homepage, userId]
+    );
+};
+
 `SELECT signature FROM signatures WHERE id = $1`;
 // for thanks db query
 

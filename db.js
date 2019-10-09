@@ -25,9 +25,16 @@ module.exports.getCities = city => {
 };
 
 module.exports.showSignature = idCookie => {
-    return db.query(`SELECT signature FROM signatures WHERE user_id = $1`, [
-        idCookie
-    ]);
+    return db.query(
+        `
+        SELECT signature, first
+        FROM signatures
+        LEFT JOIN users
+        ON users.id = signatures.user_id
+        WHERE user_id = $1
+        `,
+        [idCookie]
+    );
     // return db.query(
     //     `SELECT first, signature FROM signatures WHERE id = ${idCookie}`
     // );

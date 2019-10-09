@@ -95,9 +95,13 @@ app.post("/profile", (req, res) => {
     let homepage = req.body.homepage;
     let userId = req.session.regId;
     console.log("age: ", age, ", city: ", city, ", homepage: ", homepage);
-    addProfile(age, city, homepage, userId).then(() => {
+    if (age || city || homepage) {
+        addProfile(age, city, homepage, userId).then(() => {
+            res.redirect("/petition");
+        });
+    } else {
         res.redirect("/petition");
-    });
+    }
 });
 
 app.get("/login", (req, res) => {
@@ -233,4 +237,6 @@ app.get("/logout", (req, res) => {
     // req.session.digId = null
 });
 
-app.listen(8080, () => console.log("Petition server running"));
+app.listen(process.env.PORT || 8080, () =>
+    console.log("Petition server running")
+);

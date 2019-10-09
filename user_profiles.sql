@@ -6,7 +6,6 @@ CREATE TABLE user_profiles(
     city VARCHAR,
     homepage VARCHAR,
     user_id INT REFERENCES users(id) NOT NULL UNIQUE
-
 );
 
 SELECT * FROM user_profiles;

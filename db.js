@@ -27,6 +27,38 @@ module.exports.getEditProfile = id => {
     );
 };
 
+module.exports.updateNoPswd = (first, last, email, id) => {
+    return db.query(
+        `
+        UPDATE users SET first = $1, last = $2, email = $3
+        WHERE id = $4
+        `,
+        [first, last, email, id]
+    );
+};
+
+module.exports.updateWithPswd = (first, last, email, password, id) => {
+    return db.query(
+        `
+        UPDATE users SET first = $1, last = $2, email = $3, password = $4
+        WHERE id = $5
+        `,
+        [first, last, email, password, id]
+    );
+};
+
+module.exports.upsert = (age, city, page, id) => {
+    return db.query(
+        `
+        INSERT INTO user_profiles (age, city, homepage, user_id)
+        VALUES ($1, $2, $3, $4)
+        ON CONFLICT (user_id)
+        DO UPDATE SET age = $1, city = $2, homepage = $3
+        `,
+        [age, city, page, id]
+    );
+};
+
 module.exports.getCities = city => {
     return db.query(
         `SELECT first as first_name, last as last_name, age as age_int, city as residence, homepage as url FROM signatures
@@ -109,7 +141,7 @@ exports.addProfile = (age, city, homepage, userId) => {
         VALUES ($1, $2, $3, $4)
         RETURNING *
         `,
-        [age, city, homepage, userId]
+        [age || null, city, homepage, userId]
     );
 };
 

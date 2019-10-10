@@ -1,16 +1,19 @@
-<h1>Edit profile</h1>
-<p>First name</p>
-<input type="text" placeholder={{first}}>
-<p>{{first}}</p>
-<p>Last name</p>
-<input type="text" placeholder="{{last}}">
-<p>Email</p>
-<input type="text" placeholder="{{email}}">
-<p>Password</p>
-<input type="text" name="" value="">
-<p>Age</p>
-<input type="text" placeholder="{{age}}">
-<p>City</p>
-<input type="text" placeholder="{{city}}">
-<p>Homepage</p>
-<input type="text" placeholder="{{page}}">
+<form method="POST">
+    <h1>Edit profile</h1>
+    <p>First name</p>
+    <input type="text" name="first" value={{first}}>
+    <p>Last name</p>
+    <input type="text" name="last" value="{{last}}">
+    <p>Email</p>
+    <input type="text" name="email" value="{{email}}">
+    <p>Password</p>
+    <input type="text" name="password" value="">
+    <p>Age</p>
+    <input type="text" name="age" value="{{age}}">
+    <p>City</p>
+    <input type="text" name="city" value="{{city}}">
+    <p>Homepage</p>
+    <input type="text" name="page" value="{{page}}">
+    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+    <button>UPDATE</button>
+</form>

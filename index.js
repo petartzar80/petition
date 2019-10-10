@@ -13,7 +13,9 @@ const {
     getCities,
     getIfSigned,
     deleteSig,
-    getEditProfile
+    getEditProfile,
+    updateNoPswd,
+    upsert
 } = require("./db");
 const csurf = require("csurf");
 const { hash, compare } = require("./passwordModules");
@@ -258,6 +260,41 @@ app.get("/profile/edit", (req, res) => {
             console.log(err);
             res.render("editprofile", { error: true });
         });
+});
+
+app.post("/profile/edit", (req, res) => {
+    console.log("edit post first: ", req.body.first);
+    if (!req.body.password) {
+        console.log("no password");
+        console.log(
+            "no pswd elements: ",
+            req.body.first,
+            req.body.last,
+            req.body.email,
+            req.session.regId
+        );
+        updateNoPswd(
+            req.body.first,
+            req.body.last,
+            req.body.email,
+            req.session.regId
+        )
+            .then(() => {
+                console.log("I got here woohoo!");
+                upsert(
+                    req.body.age,
+                    req.body.city,
+                    req.body.page,
+                    req.session.regId
+                );
+            })
+            .catch(err => {
+                console.log(err);
+                res.render("signers", { error: true });
+            });
+    } else {
+        console.log("yes password");
+    }
 });
 
 app.get("/signers", (req, res) => {

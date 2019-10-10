@@ -46,10 +46,10 @@ function drawLine(context, x1, y1, x2, y2) {
 // submit button
 
 const button = $("button");
-const first = document.getElementById("first");
-console.log(first);
-const last = document.getElementById("last");
-console.log(last);
+// const first = document.getElementById("first");
+// console.log(first);
+// const last = document.getElementById("last");
+// console.log(last);
 const signature = document.getElementById("signature");
 
 button.on("click", function() {

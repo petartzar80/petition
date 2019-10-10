@@ -14,6 +14,19 @@ module.exports.getFullName = () => {
     `);
 };
 
+module.exports.getEditProfile = id => {
+    return db.query(
+        `SELECT first as first_name, last as last_name, email as mail, age as age_int, city as residence, homepage as url FROM signatures
+        LEFT JOIN users
+        ON users.id = signatures.user_id
+        LEFT JOIN user_profiles
+        ON users.id = user_profiles.user_id
+        WHERE users.id = $1
+        `,
+        [id]
+    );
+};
+
 module.exports.getCities = city => {
     return db.query(
         `SELECT first as first_name, last as last_name, age as age_int, city as residence, homepage as url FROM signatures
@@ -97,6 +110,15 @@ exports.addProfile = (age, city, homepage, userId) => {
         RETURNING *
         `,
         [age, city, homepage, userId]
+    );
+};
+
+exports.deleteSig = id => {
+    return db.query(
+        `
+        DELETE FROM signatures WHERE id = $1;
+        `,
+        [id]
     );
 };
 

@@ -11,7 +11,9 @@ const {
     getPassword,
     addProfile,
     getCities,
-    getIfSigned
+    getIfSigned,
+    deleteSig,
+    getEditProfile
 } = require("./db");
 const csurf = require("csurf");
 const { hash, compare } = require("./passwordModules");
@@ -183,6 +185,7 @@ app.post("/petition", (req, res) => {
     // let firstName = req.body.first;
     // let lastName = req.body.last;
     let signature = req.body.signature;
+    console.log("petition sig: ", signature);
     let regId = req.session.regId;
 
     // console.log(firstName);
@@ -227,6 +230,33 @@ app.get("/thanks", (req, res) => {
         .catch(err => {
             console.log(err);
             res.render("thanks", { error: true });
+        });
+});
+
+app.post("/signature/delete", (req, res) => {
+    console.log("deletefirst");
+    deleteSig(req.session.regId).then(() => {
+        console.log("deletesecond");
+        res.redirect("/registration");
+    });
+});
+
+app.get("/profile/edit", (req, res) => {
+    getEditProfile(req.session.regId)
+        .then(({ rows }) => {
+            console.log("editprofile rows: ", rows);
+            res.render("editprofile", {
+                first: rows[0].first_name,
+                last: rows[0].last_name,
+                email: rows[0].mail,
+                age: rows[0].age_int,
+                city: rows[0].residence,
+                page: rows[0].url
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            res.render("editprofile", { error: true });
         });
 });
 

@@ -1,14 +1,8 @@
 
 <form method="POST" class="inputField">
-    <div class="textInput">
-        <p>First name</p>
-        <input type="text" name="first" id="first">
-        <p>Last name</p>
-        <input type="text" name="last" id="last">
-    </div>
     <div class="sigInput">
-        <input type="hidden" name="signature" id="signature">
         <input type="hidden" name="_csrf" value="{{csrfToken}}">
+        <input type="hidden" name="signature" id="signature">
         <canvas id="sigCanvas" width="500" height="150"></canvas>
     </div>
     <button name="button" id="submit">Submit</button>
@@ -16,4 +10,5 @@
            <div class ="error"> Oops! something went wrong</div>
        {{/if}}
 </form>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="sig-canvas.js"></script>

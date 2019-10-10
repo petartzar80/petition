@@ -20,9 +20,9 @@
                 {{/if}}
             {{else}}
                 {{#if url}}
-                    <li>first name: <a href={{url}}>{{first_name}}</a>   last name: {{last_name}} age: {{age_int}} city: {{residence}} </li>
+                    <li>first name: <a href={{url}}>{{first_name}}</a>   last name: {{last_name}} age: {{age_int}} city:  <a href="/signers/{{residence}}">{{residence}}</a>  </li>
                 {{else}}
-                    <li>first name: {{first_name}}  last name: {{last_name}} age: {{age_int}} city: {{residence}} </li>
+                    <li>first name: {{first_name}}  last name: {{last_name}} age: {{age_int}} city: <a href="/signers/{{residence}}">{{residence}}</a> </li>
                 {{/if}}
             {{/if}}
             <!-- <li>first name: {{firstName}}  last name: {{lastName}} age: {{ageInt}} city: {{residence}} </li> -->

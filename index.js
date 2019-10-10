@@ -246,12 +246,16 @@ app.get("/signers/:city", (req, res) => {
     const { city } = req.params;
     getCities(city)
         .then(({ rows }) => {
-            let sigCityRows = { rows };
-            sigCityRows.rows[0].extractedCity = true;
-            console.log("signers city rows: ", sigCityRows);
-            console.log("sigcity first_name: ", sigCityRows.rows[0].first_name);
+            // sigCityRows.rows[0].extractedCity = true;
+            // let town = sigCityRows.rows[0].residence;
+            console.log("signers city rows: ", rows);
+            console.log("sigcity first_name: ", rows[0].first_name);
             // sigCityRows[0].town = true;
-            res.render("signers", sigCityRows);
+            res.render("signers", {
+                rows,
+                extractedCity: true,
+                town: rows[0].residence
+            });
         })
         .catch(err => {
             console.log(err);

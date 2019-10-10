@@ -290,7 +290,7 @@ app.post("/profile/edit", (req, res) => {
             })
             .catch(err => {
                 console.log(err);
-                res.render("signers", { error: true });
+                res.render("editprofile", { error: true });
             });
     } else {
         console.log("yes password");

@@ -130,3 +130,30 @@ the query that is finding by email to
 
 **HEROKU**
 
+
+
+
+
+
+
+
+
+if no info entered in the user table
+
+better to make promise all for queries if password or without password
+
+redirect back to get route so user can see the details or going to thank you page or sth
+
+
+
+maybe use only upsert instead the insert for the profile
+
+
+
+deletion should be a button element that is a form
+
+<form action="/signature/delete" method="POST">
+    <input type="hidden" name="_csrf"
+</form>
+
+after deletion make them sign again

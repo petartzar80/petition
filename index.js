@@ -166,7 +166,7 @@ app.post("/login", (req, res) => {
 });
 
 app.get("/petition", (req, res) => {
-    let regId = req.session.regId;
+    let regId = req.session.signedId;
     getIfSigned(regId).then(({ rows }) => {
         if (rows[0]) {
             console.log(rows);
@@ -246,7 +246,12 @@ app.get("/signers/:city", (req, res) => {
     const { city } = req.params;
     getCities(city)
         .then(({ rows }) => {
-            res.render("signers", { rows });
+            let sigCityRows = { rows };
+            sigCityRows.rows[0].extractedCity = true;
+            console.log("signers city rows: ", sigCityRows);
+            console.log("sigcity first_name: ", sigCityRows.rows[0].first_name);
+            // sigCityRows[0].town = true;
+            res.render("signers", sigCityRows);
         })
         .catch(err => {
             console.log(err);

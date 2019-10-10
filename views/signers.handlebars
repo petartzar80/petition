@@ -2,7 +2,11 @@
        <div class ="error"> Oops! something went wrong</div>
    {{/if}}
 <div class="signers">
+    {{#if ./extractedCity}}
+    <h1>Here be signers from {{residence}}</h1>
+    {{else}}
     <h1>Here be signers</h1>
+    {{/if}}
     {{#rows}}
         <ul>
             {{#if url}}

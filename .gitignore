@@ -4,3 +4,4 @@ package-lock.json
 bcrypt.js
 foreignkey.sql
 notes.md
+upsert.sql

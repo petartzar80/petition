@@ -42,6 +42,9 @@ module.exports.showSignature = idCookie => {
     // );
 };
 
+// db.query('', [age || null],)
+// for handling age
+
 module.exports.getNumSigners = () => {
     return db.query(`SELECT COUNT(*) FROM signatures`);
 };

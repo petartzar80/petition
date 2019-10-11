@@ -140,6 +140,9 @@ app.post("/login", (req, res) => {
             return isMatch;
         })
         .then(isMatch => {
+            showSignature(id).then(result => {
+                console.log("login result: ", result);
+            });
             if (isMatch) {
                 req.session.regId = id;
                 // req.session.signedId = id;

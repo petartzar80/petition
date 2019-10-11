@@ -142,27 +142,30 @@ app.post("/login", (req, res) => {
             id = receivedId;
             // let returnArray = [isMatch, receivedId];
             // return returnArray;
+
             return isMatch;
         })
         .then(isMatch => {
-            showSignature(id)
-                .then(({ rows }) => {
-                    console.log("login result: ", rows);
-                    if (rows[0].signature) {
-                        req.session.signedId = rows[0].sig_id;
-                        console.log("login signedId: ", req.session.signedId);
-                    }
-                })
-                .catch(err => {
-                    console.log(err);
-                    res.render("login", { error: true });
-                });
-            if (isMatch && !req.session.signedId) {
-                req.session.regId = id;
-                // req.session.signedId = id;
-                res.redirect("/petition");
-            } else if (isMatch) {
-                res.redirect("/thanks");
+            console.log("I'm in then isMatch");
+            // if (isMatch && !req.session.signedId) {
+            if (isMatch) {
+                // showSignature(id)
+                getIfSigned(id)
+                    .then(({ rows }) => {
+                        if (rows[0]) {
+                            console.log("login result: ", rows);
+
+                            req.session.signedId = rows[0].sig_id;
+                            req.session.regId = id;
+                            console.log("isMatch regId: ", req.session.regId);
+                            // req.session.signedId = id;
+                            res.redirect("/petition");
+                        }
+                    })
+                    .catch(err => {
+                        console.log(err);
+                        res.render("login", { error: true });
+                    });
             } else {
                 res.render("login", { error: true });
             }
@@ -171,32 +174,13 @@ app.post("/login", (req, res) => {
             console.log(err);
             res.render("login", { error: true });
         });
-    // console.log("Is Match: ", isMatch));
-    // hash(req.body.password)
-    //     .then(result => {
-    //         logPass = result;
-    //         console.log("logPass hashed: ", logPass);
-    //         return logPass;
-    //     })
-    //     .then(logPass => {
-    //         getPassword(email)
-    //             .then(({ rows }) => {
-    //                 let receivedPass = rows[0].password;
-    //                 console.log("receivedPass: ", receivedPass);
-    //                 return compare(logPass, receivedPass);
-    //             })
-    //             .then(isMatch => console.log("Is Match: ", isMatch));
-    //     });
 });
 
 app.get("/petition", (req, res) => {
-    let signedId = req.session.signedId;
-    if (signedId) {
-        res.redirect("/thanks");
-    } else if (req.session.regId) {
+    if (req.session.regId) {
         getIfSigned(req.session.regId).then(({ rows }) => {
             if (rows[0]) {
-                console.log(rows);
+                console.log("petition rows: ", rows);
                 res.redirect("/thanks");
             } else {
                 console.log("havent signed!");
@@ -263,7 +247,8 @@ app.post("/signature/delete", (req, res) => {
     console.log("deletefirst");
     deleteSig(req.session.regId).then(() => {
         console.log("deletesecond");
-        res.redirect("/registration");
+        req.session.signedId = null;
+        res.redirect("/petition");
     });
 });
 

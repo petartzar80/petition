@@ -148,7 +148,7 @@ exports.addProfile = (age, city, homepage, userId) => {
 exports.deleteSig = id => {
     return db.query(
         `
-        DELETE FROM signatures WHERE id = $1;
+        DELETE FROM signatures WHERE user_id = $1;
         `,
         [id]
     );

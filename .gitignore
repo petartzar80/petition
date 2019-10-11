@@ -5,3 +5,6 @@ bcrypt.js
 foreignkey.sql
 notes.md
 upsert.sql
+profile-routes.js
+auth-routes.js
+index-duplicate.js

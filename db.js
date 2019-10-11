@@ -74,7 +74,7 @@ module.exports.getCities = city => {
 module.exports.showSignature = idCookie => {
     return db.query(
         `
-        SELECT signature, first
+        SELECT signature, first, user_id as sig_id
         FROM signatures
         LEFT JOIN users
         ON users.id = signatures.user_id
@@ -108,7 +108,7 @@ exports.addInfo = (signature, userId) => {
 exports.getIfSigned = id => {
     return db.query(
         `
-        SELECT user_id FROM signatures WHERE id = $1
+        SELECT user_id FROM signatures WHERE user_id = $1
         `,
         [id]
     );

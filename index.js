@@ -158,7 +158,9 @@ app.post("/login", (req, res) => {
                             req.session.signedId = rows[0].sig_id;
                             req.session.regId = id;
                             console.log("isMatch regId: ", req.session.regId);
+                            res.redirect("/thanks");
                             // req.session.signedId = id;
+                        } else {
                             res.redirect("/petition");
                         }
                     })
@@ -229,14 +231,15 @@ app.get("/thanks", (req, res) => {
             //     signature: rows[0].signature
             // });
         })
-        .then(
+        .then(() => {
             getNumSigners().then(({ rows }) => {
+                console.log("rendering object: ", renderingObject);
                 console.log("getnum rows: ", rows[0].count);
                 renderingObject.count = rows[0].count;
                 console.log("rend object: ", renderingObject);
                 res.render("thanks", renderingObject);
-            })
-        )
+            });
+        })
         .catch(err => {
             console.log(err);
             res.render("thanks", { error: true });
@@ -386,6 +389,7 @@ app.get("/signers/:city", (req, res) => {
 
 app.get("/logout", (req, res) => {
     req.session = null;
+    res.redirect("/registration");
     // deleting a single cookie
     // req.session.digId = null
 });

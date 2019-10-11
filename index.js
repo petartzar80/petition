@@ -1,5 +1,10 @@
 const express = require("express");
 const app = express();
+exports.app = app;
+// const express = require('express');
+// const app =
+// const app = (exports.app = express());
+
 const hb = require("express-handlebars");
 const cookieSession = require("cookie-session");
 const {

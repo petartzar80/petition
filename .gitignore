@@ -8,3 +8,5 @@ upsert.sql
 profile-routes.js
 auth-routes.js
 index-duplicate.js
+supertest.js
+supertest.test.js

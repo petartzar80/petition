@@ -55,7 +55,7 @@ module.exports.upsert = (age, city, page, id) => {
         ON CONFLICT (user_id)
         DO UPDATE SET age = $1, city = $2, homepage = $3
         `,
-        [age, city, page, id]
+        [age || null, city, page, id]
     );
 };
 

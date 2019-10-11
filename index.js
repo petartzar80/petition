@@ -15,11 +15,11 @@ const {
     deleteSig,
     getEditProfile,
     updateNoPswd,
+    updateWithPswd,
     upsert
 } = require("./db");
 const csurf = require("csurf");
 const { hash, compare } = require("./passwordModules");
-let isSigned;
 
 app.engine("handlebars", hb());
 app.set("view engine", "handlebars");
@@ -142,6 +142,7 @@ app.post("/login", (req, res) => {
         .then(isMatch => {
             if (isMatch) {
                 req.session.regId = id;
+                // req.session.signedId = id;
                 res.redirect("/petition");
             } else {
                 res.render("login", { error: true });
@@ -287,6 +288,7 @@ app.post("/profile/edit", (req, res) => {
                     req.body.page,
                     req.session.regId
                 );
+                res.redirect("/thanks");
             })
             .catch(err => {
                 console.log(err);
@@ -294,6 +296,39 @@ app.post("/profile/edit", (req, res) => {
             });
     } else {
         console.log("yes password");
+        let origPswd = req.body.password;
+        let password = "";
+
+        hash(origPswd)
+            .then(result => {
+                password = result;
+                return password;
+            })
+
+            .then(password => {
+                console.log("testing ", password);
+                updateWithPswd(
+                    req.body.first,
+                    req.body.last,
+                    req.body.email,
+                    password,
+                    req.session.regId
+                )
+                    .then(() => {
+                        console.log("I got here woohoo!");
+                        upsert(
+                            req.body.age,
+                            req.body.city,
+                            req.body.page,
+                            req.session.regId
+                        );
+                        res.redirect("/thanks");
+                    })
+                    .catch(err => {
+                        console.log(err);
+                        res.render("editprofile", { error: true });
+                    });
+            });
     }
 });
 

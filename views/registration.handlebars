@@ -1,23 +1,40 @@
-
-<div class="registration">
-    <h1>Register here</h1>
-    <form method="POST" class="inputField">
-        <input type="hidden" name="_csrf" value="{{csrfToken}}">
-        
-        <div class="textInput">
-            <p>First Name</p>
-            <input type="text" name="first" id="first">
-            <p>Last Name</p>
-            <input type="text" name="last" id="last">
-            <p>Email</p>
-            <input type="text" name="email" id="email">
-            <p>Password</p>
-            <input type="text" name="password" id="password">
+<div class="container">
+    <div class="registration">
+        <div class="descriptionDiv">
+            <h1>A petition against violence towards opponents of arbitrary causes for petitions</h1>
+            <div class="description">
+                <p>We are all aware that petitions are a serious thing - recently a petition saved captain Carola Rackete of Sea Watch from a prison sentence. Therefore, it's not strange that some people consider petitions a matter not to be played around with by assigning them arbitrary causes, even for educational purposes. If you're not one of them, you might assume they're just grumpy old men, but we ask of you to consider the fact that physical or psychological violence does not solve anything - it might only reinforce their rigid beliefs. To prevent future instances of unnecessary violence towards these individuals, we ask of you to consider signing this fine petition.</p>
+            </div>
         </div>
-        <button name="button" id="submit">SIGN UP</button>
-        <p>If already a member, do <a href="/login">log in</a>.</p>
-        {{#if error}}
-               <div class="error"> Oops! something went wrong</div>
-           {{/if}}
-    </form>
+
+        <form method="POST" class="inputField">
+            <input type="hidden" name="_csrf" value="{{csrfToken}}">
+
+            <div class="textInput">
+                <div class="input">
+                    <p>First Name</p>
+                    <input type="text" name="first" id="first">
+                </div>
+                <div class="input">
+                    <p>Last Name</p>
+                    <input type="text" name="last" id="last">
+                </div>
+                <div class="input">
+                    <p>Email</p>
+                    <input type="text" name="email" id="email">
+                </div>
+                <div class="input">
+                    <p>Password</p>
+                    <input type="text" name="password" id="password">
+                </div>
+            </div>
+            <button name="button" id="submit">SIGN UP</button>
+            <div class="loginLink">
+                <p>If already a member, do <a href="/login">log in</a>.</p>
+            </div>
+            {{#if error}}
+                   <div class="error"> Oops! something went wrong</div>
+               {{/if}}
+        </form>
+    </div>
 </div>

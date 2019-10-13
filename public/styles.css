@@ -6,8 +6,73 @@
 
 body {
     border: 3px solid black;
+    height: 100vh;
 }
 
 canvas {
     border: 3px solid red;
+}
+
+button {
+    height: 5vh;
+}
+
+.container {
+    border: 3px solid blue;
+    height: 80%;
+    /* grid-template-rows: 2% 28% 65%; */
+}
+
+.registration {
+    border: 3px solid green;
+    height: 70vh;
+    display: grid;
+    align-items: center;
+}
+
+.inputField {
+    border: 3px solid red;
+    display: grid;
+    width: 30vw;
+    height: 33vh;
+    margin: 0 auto;
+}
+
+.input {
+    border: 3px solid yellow;
+    text-align: center;
+}
+
+.loginLink {
+    border: 3px solid green;
+    text-align: center;
+}
+
+.loginLink p {
+    margin-top: 2vh;
+    bottom: 0;
+    border: 3px solid blue;
+}
+
+.descriptionDiv {
+    border: 3px solid brown;
+    text-align: center;
+}
+
+.description {
+    border: 3px solid black;
+    width: 70%;
+    margin: 5vh auto;
+}
+
+#first {
+}
+
+#last {
+}
+
+#email {
+}
+
+#password {
 }

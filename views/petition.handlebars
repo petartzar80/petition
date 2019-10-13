@@ -1,15 +1,30 @@
+<div class="container">
+    <div class="content">
+        <div class="logout">
+            <a href="/logout">LOGOUT</a>
+        </div>
 
-<form method="POST" class="inputField">
-    <div class="sigInput">
-        <input type="hidden" name="_csrf" value="{{csrfToken}}">
-        <input type="hidden" name="signature" id="signature">
-        <canvas id="sigCanvas" width="500" height="150"></canvas>
+        <div class="textDiv">
+            <h1>Petition itself</h1>
+            <div class="info">
+                <p>Please, do sign the petition by using your mouse in the form below.</p>
+            </div>
+        </div>
+        <form method="POST" class="petition">
+            <div class="input">
+            <!-- <div class="sigInput"> -->
+                <input type="hidden" name="signature" id="signature">
+                <canvas id="sigCanvas" width="500" height="150"></canvas>
+            </div>
+            <button name="button" id="submit">Let them eat cake!</button>
+            <p class="logout">(And have it, too!)</p>
+            <input type="hidden" name="_csrf" value="{{csrfToken}}">
+            {{#if error}}
+                   <div class ="error"> Oops! something went wrong</div>
+               {{/if}}
+        </form>
     </div>
-    <button name="button" id="submit">Submit</button>
-    {{#if error}}
-           <div class ="error"> Oops! something went wrong</div>
-       {{/if}}
-</form>
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script src="sig-canvas.js"></script>
-<a href="/logout">LOGOUT</a>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="sig-canvas.js"></script>
+
+</div>

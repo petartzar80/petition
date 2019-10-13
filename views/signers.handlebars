@@ -1,32 +1,42 @@
 {{#if error}}
        <div class ="error"> Oops! something went wrong</div>
    {{/if}}
-<div class="signers">
-    {{#if ./extractedCity}}
-    <h1>Here be signers from {{town}}</h1>
-    {{else}}
-    <h1>Here be signers</h1>
-    {{/if}}
-
-    {{#rows}}
-        <ul>
-            {{#if ../extractedCity}}
-            {{#if url}}
-                    <li>first name: <a href={{url}}>{{first_name}}</a>   last name: {{last_name}} age: {{age_int}}
-                    </li>
-                {{else}}
-                    <li>first name: {{first_name}}  last name: {{last_name}} age: {{age_int}}
-                    </li>
-                {{/if}}
+<div class="container">
+    <div class="content">
+        <div class="logout">
+            <a href="/logout">LOGOUT</a>
+        </div>
+        <div class="textDiv">
+            {{#if ./extractedCity}}
+            <h1>Here be signers from {{town}}</h1>
             {{else}}
-                {{#if url}}
-                    <li>first name: <a href={{url}}>{{first_name}}</a>   last name: {{last_name}} age: {{age_int}} city:  <a href="/signers/{{residence}}">{{residence}}</a>  </li>
-                {{else}}
-                    <li>first name: {{first_name}}  last name: {{last_name}} age: {{age_int}} city: <a href="/signers/{{residence}}">{{residence}}</a> </li>
-                {{/if}}
+            <h1>Here be signers</h1>
             {{/if}}
-            <!-- <li>first name: {{firstName}}  last name: {{lastName}} age: {{ageInt}} city: {{residence}} </li> -->
-        </ul>
-    {{/rows}}
+        <div class="signersDiv">
+
+            {{#rows}}
+                <ul>
+                    {{#if ../extractedCity}}
+                    {{#if url}}
+                            <li><a href={{url}}>{{first_name}}</a> {{last_name}} {{age_int}}
+                            </li>
+                        {{else}}
+                            <li>{{first_name}} {{last_name}} {{age_int}}
+                            </li>
+                        {{/if}}
+                    {{else}}
+                        {{#if url}}
+                            <li><a href={{url}}>{{first_name}}</a> {{last_name}} {{age_int}} <a href="/signers/{{residence}}">{{residence}}</a>  </li>
+                        {{else}}
+                            <li>{{first_name}} {{last_name}} {{age_int}} <a href="/signers/{{residence}}">{{residence}}</a> </li>
+                        {{/if}}
+                    {{/if}}
+                    <!-- <li>first name: {{firstName}}  last name: {{lastName}} age: {{ageInt}} city: {{residence}} </li> -->
+                </ul>
+            {{/rows}}
+        </div>
+        <!-- <div class="signers"> -->
+
+        </div>
+    </div>
 </div>
-<a href="/logout">LOGOUT</a>

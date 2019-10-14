@@ -1,25 +1,27 @@
 {{#if error}}
-       <div class ="error"> Oops! something went wrong</div>
+       <div class="error"> Oops! something went wrong</div>
    {{/if}}
 <div class="container">
     <div class="content">
-        <div class="logout">
-            <a href="/logout">LOGOUT</a>
-        </div>
+
         <div class="textDiv">
             <div class="thanks">
-                <h1>Thank your lucky stars, {{first}}!</h1>
+                <h1>We appreciate your signature, {{first}}!</h1>
                 <img src="{{signature}}" alt="">
                 <br>
-                <a href="/signers" class="linkButton">Fancy checking {{count}} signers?</a>
+                <a href="/signers" class="linkButton">FANCY CHECKING {{count}} SIGNERS?</a>
                 <br>
             </div>
-            <a href="/profile/edit" class="linkButton">Edit Profile</a>
+            <a href="/profile/edit" class="linkButton">EDIT PROFILE</a>
             <form action="/signature/delete" method="POST">
                 <input type="hidden" name="_csrf" value="{{csrfToken}}">
-                <button class="deleteButton">Delete your signature</button>
+                <button class="deleteButton">DELETE YOUR SIGNATURE</button>
             </form>
+
         </div>
 
+    </div>
+    <div class="logout">
+        <a href="/logout">LOGOUT</a>
     </div>
 </div>

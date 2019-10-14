@@ -1,34 +1,39 @@
 <div class="container">
-    <div class="content">
+    <div class="content" id="profileContent">
         <div class="textDiv">
-            <h1>Profile yrslf</h1>
-            <div class="info">
-                <p>Please, consider entering some general information on yourself.</p>
+            <h1>Profile yourself.</h1>
+            <div class="profileInfo">
+                <p>Entertain us by providing some general information on your person.</p>
             </div>
         </div>
 
-        <form method="POST" class="inputField">
+        <form method="POST" class="inputField" >
+            {{#if error}}
+                   <div class="error"> Oops! something went wrong</div>
+               {{/if}}
             <input type="hidden" name="_csrf" value="{{csrfToken}}">
 
             <div class="textInput">
                 <div class="input">
-                    <p>Age</p>
-                    <input type="text" name="age" id="age">
+                    <p>AGE</p>
+                    <br>
+                    <input type="number" name="age" id="age">
                 </div>
                 <div class="input">
-                    <p>City</p>
+                    <p>CITY</p>
+                    <br>
                     <input type="text" name="city" id="city">
                 </div>
                 <div class="input">
-                    <p>Homepage</p>
+                    <p>HOMEPAGE</p>
+                    <br>
                     <input type="text" name="homepage" id="homepage">
                 </div>
 
             </div>
             <button name="button" id="submit">CONTINUE</button>
-            {{#if error}}
-                   <div class="error"> Oops! something went wrong</div>
-               {{/if}}
+
         </form>
     </div>
+
 </div>

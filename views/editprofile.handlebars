@@ -1,5 +1,6 @@
 <div class="container">
     <div class="content">
+
         <div class="textDiv">
             {{#if error}}
                    <div class ="error"> Oops! something went wrong</div>
@@ -20,7 +21,7 @@
                 </div>
                 <div class="textInput">
                     <p>Password</p>
-                    <input type="text" name="password" value="">
+                    <input type="password" name="password" value="">
                 </div>
                 <div class="textInput">
                     <p>Age</p>
@@ -37,10 +38,11 @@
 
                 <input type="hidden" name="_csrf" value="{{csrfToken}}">
                 <!-- <br> -->
-                <button>UPDATE</button>
+                <button class="updateButton">UPDATE</button>
             </form>
         </div>
-
+    </div>
+    <div class="logout">
         <a href="/logout">LOGOUT</a>
     </div>
 </div>

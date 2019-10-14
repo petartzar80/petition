@@ -1,3 +1,6 @@
+{{#if error}}
+       <div class="error"> Oops! something went wrong</div>
+   {{/if}}
 <div class="container">
     <div class="content" id="profileContent">
         <div class="textDiv">
@@ -8,9 +11,7 @@
         </div>
 
         <form method="POST" class="inputField" >
-            {{#if error}}
-                   <div class="error"> Oops! something went wrong</div>
-               {{/if}}
+
             <input type="hidden" name="_csrf" value="{{csrfToken}}">
 
             <div class="textInput">

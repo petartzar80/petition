@@ -1,4 +1,6 @@
-
+{{#if error}}
+       <div class="error"> Oops! something went wrong</div>
+   {{/if}}
 <div class="container">
     <!-- <div id="overlay">
     </div> -->
@@ -38,9 +40,7 @@
             <div class="loginLink">
                 <p>If already a member, do <a href="/login">LOG IN</a>.</p>
             </div>
-            {{#if error}}
-                   <div class="error"> Oops! something went wrong</div>
-               {{/if}}
+
         </form>
     </div>
 

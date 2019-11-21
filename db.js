@@ -82,13 +82,7 @@ module.exports.showSignature = idCookie => {
         `,
         [idCookie]
     );
-    // return db.query(
-    //     `SELECT first, signature FROM signatures WHERE id = ${idCookie}`
-    // );
 };
-
-// db.query('', [age || null],)
-// for handling age
 
 module.exports.getNumSigners = () => {
     return db.query(`SELECT COUNT(*) FROM signatures`);
@@ -153,16 +147,3 @@ exports.deleteSig = id => {
         [id]
     );
 };
-
-`SELECT signature FROM signatures WHERE id = $1`;
-// for thanks db query
-
-// db.query(
-//     `INSERT INTO signatures (first, last)
-//             VALUES (${first}, ${last})
-//             RETURNING *`
-// ).then(({ rows }) => console.log(rows).catch(err => console.log(err.massage)));
-
-// db.query(`SELECT * FROM cities WHERE city = 'Berlin'`).then(({ rows }) =>
-//     console.log(rows).ctch(err => console.log(err.massage))
-// );

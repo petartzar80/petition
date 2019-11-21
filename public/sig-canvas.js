@@ -1,4 +1,3 @@
-// When true, moving the mouse draws on the canvas
 let isDrawing = false;
 let x = 0;
 let y = 0;
@@ -6,10 +5,8 @@ let y = 0;
 const sigCanvas = document.getElementById("sigCanvas");
 const context = sigCanvas.getContext("2d");
 
-// The x and y offset of the canvas from the edge of the page
 const rect = sigCanvas.getBoundingClientRect();
 
-// Add the event listeners for mousedown, mousemove, and mouseup
 sigCanvas.addEventListener("mousedown", e => {
     x = e.clientX - rect.left;
     y = e.clientY - rect.top;
@@ -43,20 +40,11 @@ function drawLine(context, x1, y1, x2, y2) {
     context.closePath();
 }
 
-// submit button
-
 const button = $("button");
-// const first = document.getElementById("first");
-// console.log(first);
-// const last = document.getElementById("last");
-// console.log(last);
+
 const signature = document.getElementById("signature");
 
 button.on("click", function() {
-    console.log("clicking");
-    // console.log("first: ", first.value);
-    // console.log("last: ", last.value);
     let canvasValue = sigCanvas.toDataURL();
     signature.value = canvasValue;
-    console.log("signature: ", signature.value);
 });

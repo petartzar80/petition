@@ -1,10 +1,6 @@
 const express = require("express");
 const app = express();
 exports.app = app;
-// const express = require('express');
-// const app =
-// const app = (exports.app = express());
-
 const hb = require("express-handlebars");
 const cookieSession = require("cookie-session");
 const {
@@ -35,14 +31,6 @@ app.use(
     })
 );
 
-//MIDDLEWARE
-
-app.use((req, res, next) => {
-    console.log("middleware running");
-    console.log("req.url: ", req.url);
-    next();
-});
-
 app.use(
     cookieSession({
         secret: `I'm always angry.`,
@@ -62,15 +50,11 @@ app.use((req, res, next) => {
 });
 
 app.get("/", (req, res) => {
-    console.log("req session in route ", req.session);
     if (req.session.regId) {
         res.redirect("/petition");
     } else {
         res.redirect("/registration");
     }
-    // query if signed, redirect to thanks
-    // if logged redirect to petition
-    // else redirect to registration
 });
 
 app.get("/registration", (req, res) => {
@@ -91,7 +75,6 @@ app.post("/registration", (req, res) => {
         })
 
         .then(password => {
-            console.log("testing ", password);
             register(firstName, lastName, email, password)
                 .then(({ rows }) => {
                     req.session.regId = rows[0].id;
@@ -113,7 +96,6 @@ app.post("/profile", (req, res) => {
     let city = req.body.city;
     let homepage = req.body.homepage;
     let userId = req.session.regId;
-    console.log("age: ", age, ", city: ", city, ", homepage: ", homepage);
     if (age || city || homepage) {
         addProfile(age, city, homepage, userId).then(() => {
             res.redirect("/petition");
@@ -129,37 +111,24 @@ app.get("/login", (req, res) => {
 
 app.post("/login", (req, res) => {
     let email = req.body.email;
-    // let logPass = "";
     let id;
     let logPass = req.body.password;
     getPassword(email)
         .then(({ rows }) => {
             let receivedPass = rows[0].password;
             let receivedId = rows[0].id;
-            console.log("Top received ID: ", receivedId);
-            console.log("receivedPass: ", receivedPass);
             let isMatch = compare(logPass, receivedPass);
             id = receivedId;
-            // let returnArray = [isMatch, receivedId];
-            // return returnArray;
-
             return isMatch;
         })
         .then(isMatch => {
-            console.log("I'm in then isMatch");
-            // if (isMatch && !req.session.signedId) {
             if (isMatch) {
-                // showSignature(id)
                 getIfSigned(id)
                     .then(({ rows }) => {
                         if (rows[0]) {
-                            console.log("login result: ", rows);
-
                             req.session.signedId = rows[0].sig_id;
                             req.session.regId = id;
-                            console.log("isMatch regId: ", req.session.regId);
                             res.redirect("/thanks");
-                            // req.session.signedId = id;
                         } else {
                             res.redirect("/petition");
                         }
@@ -182,30 +151,19 @@ app.get("/petition", (req, res) => {
     if (req.session.regId) {
         getIfSigned(req.session.regId).then(({ rows }) => {
             if (rows[0]) {
-                console.log("petition rows: ", rows);
                 res.redirect("/thanks");
             } else {
-                console.log("havent signed!");
                 res.render("petition");
             }
         });
     }
-    // res.render("petition");
 });
 
 app.post("/petition", (req, res) => {
-    // let firstName = req.body.first;
-    // let lastName = req.body.last;
     let signature = req.body.signature;
-    console.log("petition sig: ", signature);
     let regId = req.session.regId;
-
-    // console.log(firstName);
-    // console.log(lastName);
-    // console.log(signature);
     addInfo(signature, regId)
         .then(({ rows }) => {
-            console.log("rows: ", rows);
             req.session.signedId = rows[0].id;
             res.redirect("/thanks");
         })
@@ -218,25 +176,14 @@ app.post("/petition", (req, res) => {
 app.get("/thanks", (req, res) => {
     let idCookie = req.session.regId;
     let renderingObject = {};
-    console.log("ID cookie: ", idCookie);
     showSignature(idCookie)
         .then(({ rows }) => {
-            console.log("thanks rows: ", rows);
-            // console.log("THANKS ROWS first: ", rows[0].first);
             renderingObject.first = rows[0].first;
             renderingObject.signature = rows[0].signature;
-            // res.render("thanks");
-            // res.render("thanks", {
-            //     first: rows[0].first,
-            //     signature: rows[0].signature
-            // });
         })
         .then(() => {
             getNumSigners().then(({ rows }) => {
-                console.log("rendering object: ", renderingObject);
-                console.log("getnum rows: ", rows[0].count);
                 renderingObject.count = rows[0].count;
-                console.log("rend object: ", renderingObject);
                 res.render("thanks", renderingObject);
             });
         })
@@ -247,9 +194,7 @@ app.get("/thanks", (req, res) => {
 });
 
 app.post("/signature/delete", (req, res) => {
-    console.log("deletefirst");
     deleteSig(req.session.regId).then(() => {
-        console.log("deletesecond");
         req.session.signedId = null;
         res.redirect("/petition");
     });
@@ -258,7 +203,6 @@ app.post("/signature/delete", (req, res) => {
 app.get("/profile/edit", (req, res) => {
     getEditProfile(req.session.regId)
         .then(({ rows }) => {
-            console.log("editprofile rows: ", rows);
             res.render("editprofile", {
                 first: rows[0].first_name,
                 last: rows[0].last_name,
@@ -275,16 +219,7 @@ app.get("/profile/edit", (req, res) => {
 });
 
 app.post("/profile/edit", (req, res) => {
-    console.log("edit post first: ", req.body.first);
     if (!req.body.password) {
-        console.log("no password");
-        console.log(
-            "no pswd elements: ",
-            req.body.first,
-            req.body.last,
-            req.body.email,
-            req.session.regId
-        );
         updateNoPswd(
             req.body.first,
             req.body.last,
@@ -292,7 +227,6 @@ app.post("/profile/edit", (req, res) => {
             req.session.regId
         )
             .then(() => {
-                console.log("I got here woohoo!");
                 upsert(
                     req.body.age,
                     req.body.city,
@@ -306,7 +240,6 @@ app.post("/profile/edit", (req, res) => {
                 res.render("editprofile", { error: true });
             });
     } else {
-        console.log("yes password");
         let origPswd = req.body.password;
         let password = "";
 
@@ -317,7 +250,6 @@ app.post("/profile/edit", (req, res) => {
             })
 
             .then(password => {
-                console.log("testing ", password);
                 updateWithPswd(
                     req.body.first,
                     req.body.last,
@@ -326,7 +258,6 @@ app.post("/profile/edit", (req, res) => {
                     req.session.regId
                 )
                     .then(() => {
-                        console.log("I got here woohoo!");
                         upsert(
                             req.body.age,
                             req.body.city,
@@ -346,7 +277,6 @@ app.post("/profile/edit", (req, res) => {
 app.get("/signers", (req, res) => {
     getFullName()
         .then(({ rows }) => {
-            console.log("signers rows: ", rows);
             res.render("signers", { rows });
         })
         .catch(err => {
@@ -359,11 +289,6 @@ app.get("/signers/:city", (req, res) => {
     const { city } = req.params;
     getCities(city)
         .then(({ rows }) => {
-            // sigCityRows.rows[0].extractedCity = true;
-            // let town = sigCityRows.rows[0].residence;
-            console.log("signers city rows: ", rows);
-            console.log("sigcity first_name: ", rows[0].first_name);
-            // sigCityRows[0].town = true;
             res.render("signers", {
                 rows,
                 extractedCity: true,
@@ -376,22 +301,9 @@ app.get("/signers/:city", (req, res) => {
         });
 });
 
-// app.get("/test", (req, res) => {
-//     req.session.sigId = 10;
-//     console.log("req. session in test: ", req.session);
-//     res.redirect("/");
-// });
-//
-// app.get("*", (req, res) => {
-//     req.session.cohort = "coriander";
-//     res.redirect("/");
-// });
-
 app.get("/logout", (req, res) => {
     req.session = null;
     res.redirect("/registration");
-    // deleting a single cookie
-    // req.session.digId = null
 });
 
 app.listen(process.env.PORT || 8080, () =>

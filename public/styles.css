@@ -57,13 +57,10 @@
 }
 
 body {
-    /* border: 3px solid black; */
     height: 100vh;
 }
 
 canvas {
-    /* border: 3px solid red; */
-    /* margin: 0 auto; */
     background-color: rgba(0, 0, 0, 0.7);
 }
 
@@ -95,26 +92,17 @@ h1 {
     font-family: "Gotham Regular";
     color: blue;
     font-weight: bold;
-    /* -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: black; */
-    /* text-shadow: 1px 1px 1px #000; */
     font-size: 5.5vh;
     opacity: 2;
-    /* z-index: 10; */
     padding: 2vh 2vw;
 }
 
 footer {
     color: black;
-    /* background-image: url(/img/rust2.jpg); */
     background-color: #959e9a;
-    /* background-color: #2f1d13; */
-    /* font-family: "Veljovic"; */
-    /* background-color: rgba(0, 0, 0, 1); */
 }
 
 .container {
-    /* border: 3px solid blue; */
     height: 98%;
     width: 100%;
     z-index: 0;
@@ -122,7 +110,6 @@ footer {
 }
 
 .loginContainer {
-    /* border: 3px solid blue; */
     display: block;
     position: fixed;
     top: 0px;
@@ -133,7 +120,6 @@ footer {
 }
 
 .content {
-    /* border: 3px solid green; */
     height: 95%;
     display: grid;
     align-items: center;
@@ -141,17 +127,14 @@ footer {
     opacity: 1;
     width: 950px;
     margin: 0 auto;
-    /* grid-template-rows: 53% 47%; */
 }
 
 .inputField {
-    /* border: 4px solid yellow; */
     top: 0px;
     display: grid;
     width: 40vw;
     height: 35vh;
     margin: 0 auto;
-    /* background-color: grey; */
     padding: 1vh 1vw;
 }
 
@@ -173,15 +156,12 @@ footer {
 }
 
 .input {
-    /* border: 3px solid yellow; */
     width: 200px;
     text-align: center;
     margin: 0 auto;
 }
 
 .inputPetition {
-    /* border: 3px solid yellow; */
-
     text-align: center;
     margin: 0 auto;
 }
@@ -203,7 +183,6 @@ input {
 }
 
 .loginLink {
-    /* border: 3px solid green; */
     text-align: center;
 }
 
@@ -211,8 +190,6 @@ input {
     margin-top: 0.5vh;
     bottom: 0;
     color: white;
-    /* background-color: yellow; */
-    /* border: 3px solid blue; */
 }
 
 .loginLink a {
@@ -221,7 +198,6 @@ input {
 }
 
 .textDiv {
-    /* border: 3px solid orange; */
     text-align: center;
 }
 
@@ -252,36 +228,21 @@ input {
     width: 70%;
     margin: 0 auto;
     color: white;
-    /* background-color: white; */
     padding: 2vh;
-    /* background-color: rgba(0, 0, 0, 0.2); */
 }
 
 .profileInfo {
     width: 70%;
     margin: 1vh auto;
     color: red;
-    /* background-color: white; */
     padding: 2vh;
 }
 
-/* .input p {
-    font-family: "Gotham Medium";
-    padding: 0.3vh 0.7vw;
-    background-color: yellow;
-    display: inline-block;
-    margin: 0.5vh 0;
-    font-weight: bold;
-    color: black;
-} */
-
 .profileInfo p {
     font-size: 20px;
-    /* background-color: red; */
 }
 
 .petition {
-    /* border: 3px solid grey; */
     display: grid;
     width: 100%;
     height: 33vh;
@@ -306,7 +267,6 @@ input {
     -webkit-appearance: button;
     -moz-appearance: button;
     appearance: button;
-
     text-decoration: none;
     color: initial;
     text-decoration: none;
@@ -314,8 +274,6 @@ input {
     display: inline-block;
     padding: 2px 8px;
     background-color: white;
-    /* background: ButtonFace;
-    color: ButtonText; */
     border-style: solid;
     border-width: 2px;
     border-color: ButtonHighlight ButtonShadow ButtonShadow ButtonHighlight;
@@ -326,18 +284,12 @@ input {
 }
 
 .logout {
-    /* display: block;
-    position: fixed; */
-    /* border: 3px solid orange; */
-    /* top: 10px;
-    right: 10px; */
     text-align: center;
     font-size: 20px;
 }
 
 .logout a {
     color: magenta;
-    /* margin-right: 40px; */
     font-family: "Veljovic";
 }
 
@@ -348,8 +300,6 @@ input {
     left: 0;
     bottom: 0;
     right: 0;
-
-    /* background-color: black; */
     background-color: rgba(0, 0, 0, 0.2);
     z-index: 0.5;
 }

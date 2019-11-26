@@ -5,12 +5,15 @@
     <div class="content" id="signersContent">
 
         <div class="textDiv">
-            {{#if ./extractedCity}}
-            <h1 class="signersHeadline">All the virtuous signers from: {{town}}</h1>
-            {{else}}
-            <h1 class="signersHeadline">All the virtuous signers.</h1>
-            <p>You are in outstanding company!</p>
-            {{/if}}
+            <div class="ribbon custom-signers">
+                {{#if ./extractedCity}}
+                <h1 class="signersHeadline">All the virtuous signers from: {{town}}</h1>
+                {{else}}
+                <h1 class="signersHeadline">All the virtuous signers.</h1>
+                <p>You are in outstanding company!</p>
+                {{/if}}
+            </div>
+
         <div class="signersDiv">
 
             {{#rows}}

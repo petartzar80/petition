@@ -237,14 +237,22 @@ input {
     padding-bottom: 30px;
 }
 
+.ribbon.custom-signers {
+    width: 80%;
+    padding-bottom: 20px;
+    margin: 0 auto;
+}
+
 .signersDiv {
     padding: 20px;
-    border: 3px solid yellow;
+    border: 2px outset buttonface;
     color: white;
     text-align: center;
     width: 40%;
-    margin: 3vh auto;
+    margin: 0 auto;
+    margin-top: 10vh;
     font-family: "Veljovic";
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .signersDiv a {
@@ -355,6 +363,7 @@ input {
 }
 
 #signersContent {
+    padding-top: 100px;
     grid-template-rows: 30% 70%;
 }
 

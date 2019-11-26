@@ -123,6 +123,7 @@ footer {
     height: 95%;
     display: grid;
     align-items: center;
+    grid-template-rows: 0.8fr 1.2fr;
     z-index: 1;
     opacity: 1;
     width: 950px;
@@ -175,15 +176,23 @@ input {
 .input p {
     font-family: "Gotham Medium";
     padding: 0.3vh 0.7vw;
-    background-color: yellow;
+    background-color: rgba(255, 255, 255, 0.3);
     display: inline-block;
     margin: 0.5vh 0;
+    margin-top: 0;
     font-weight: bold;
     color: black;
 }
 
+.input input {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: yellow;
+    padding: 2px;
+}
+
 .loginLink {
     text-align: center;
+    margin-top: 5px;
 }
 
 .loginLink p {
@@ -193,12 +202,22 @@ input {
 }
 
 .loginLink a {
-    color: magenta;
+    margin-top: 20px;
+    color: yellow;
     font-size: 20px;
+    font-family: "Gotham Medium";
 }
 
 .textDiv {
     text-align: center;
+    margin-top: 30px;
+}
+
+.ribbon {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    margin-bottom: 20px;
+    /* border: 3px groove yellow; */
 }
 
 .signersDiv {
@@ -224,11 +243,12 @@ input {
 }
 
 .info {
-    border: 3px solid white;
-    width: 70%;
+    /* border: 3px groove yellow; */
+    width: 100%;
     margin: 0 auto;
     color: white;
     padding: 2vh;
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 .profileInfo {
@@ -318,8 +338,13 @@ li {
 }
 
 #submit {
-    margin-top: 2vh;
-    background-color: white;
+    margin-top: 3vh;
+    margin-bottom: 1vh;
+    border: 2px ridge yellow;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: magenta;
+    height: 33px;
+    font: 16px "Gotham Medium";
 }
 
 #petitionParagraph {

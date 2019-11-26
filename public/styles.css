@@ -294,6 +294,9 @@ input {
 .deleteButton {
     width: 30%;
     margin: 2vh auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: magenta;
+    font: 16px "Gotham Medium";
 }
 
 .updateButton {
@@ -301,23 +304,25 @@ input {
 }
 
 .linkButton {
-    -webkit-appearance: button;
+    /* -webkit-appearance: button;
     -moz-appearance: button;
-    appearance: button;
+    appearance: button; */
     text-decoration: none;
-    color: initial;
+    color: magenta;
     text-decoration: none;
     font: menu;
     display: inline-block;
     padding: 2px 8px;
-    background-color: white;
-    border-style: solid;
+    background-color: rgba(0, 0, 0, 0.8);
     border-width: 2px;
-    border-color: ButtonHighlight ButtonShadow ButtonShadow ButtonHighlight;
+    /* border-color: ButtonHighlight ButtonShadow ButtonShadow ButtonHighlight; */
+    border-color: buttonface;
+    border-style: outset;
     width: 30%;
     height: 5vh;
     margin: 2vh auto;
-    padding: 1.5vh;
+    padding: 1.5vh 0;
+    font: 16px "Gotham Medium";
 }
 
 .logout {
@@ -328,6 +333,10 @@ input {
 .logout a {
     color: magenta;
     font-family: "Veljovic";
+}
+
+.thanks {
+    margin-top: 100px;
 }
 
 #overlay {

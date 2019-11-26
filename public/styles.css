@@ -184,6 +184,10 @@ input {
     color: black;
 }
 
+.input.custom-profile p {
+    margin-top: 0.5vh;
+}
+
 .input input {
     background-color: rgba(0, 0, 0, 0.5);
     color: yellow;
@@ -218,6 +222,12 @@ input {
     background-color: rgba(0, 0, 0, 0.7);
     margin-bottom: 20px;
     /* border: 3px groove yellow; */
+}
+
+.ribbon.custom-profile {
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom: 20px;
 }
 
 .signersDiv {
@@ -345,6 +355,10 @@ li {
     color: magenta;
     height: 33px;
     font: 16px "Gotham Medium";
+}
+
+#submit.profile-button {
+    margin-top: 2vh;
 }
 
 #petitionParagraph {

@@ -4,10 +4,10 @@
 <div class="container">
     <div class="content" id="profileContent">
         <div class="textDiv">
-            <div class="ribbon">
+            <div class="ribbon custom-profile">
                 <h1>Profile yourself.</h1>
             </div>
-            <div class="ribbon">
+            <div class="ribbon custom-profile">
                 <div class="profileInfo">
                     <p>Entertain us by providing some general information on your person.</p>
                 </div>
@@ -19,24 +19,24 @@
             <input type="hidden" name="_csrf" value="{{csrfToken}}">
 
             <div class="textInput">
-                <div class="input">
+                <div class="input custom-profile">
                     <p>AGE</p>
                     <br>
                     <input type="number" name="age" id="age">
                 </div>
-                <div class="input">
+                <div class="input custom-profile">
                     <p>CITY</p>
                     <br>
                     <input type="text" name="city" id="city">
                 </div>
-                <div class="input">
+                <div class="input custom-profile">
                     <p>HOMEPAGE</p>
                     <br>
                     <input type="text" name="homepage" id="homepage">
                 </div>
 
             </div>
-            <button name="button" id="submit">CONTINUE</button>
+            <button name="button" id="submit" class="profile-button">CONTINUE</button>
 
         </form>
     </div>

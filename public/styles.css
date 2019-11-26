@@ -230,6 +230,13 @@ input {
     margin-bottom: 20px;
 }
 
+.ribbon.custom-petition {
+    width: 500px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    padding-bottom: 30px;
+}
+
 .signersDiv {
     padding: 20px;
     border: 3px solid yellow;

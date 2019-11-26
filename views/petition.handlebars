@@ -6,15 +6,17 @@
 
 
         <div class="textDiv">
-            <h1>The petition itself.</h1>
+            <div class="ribbon custom-petition">
+                <h1>The petition itself.</h1>
                 <p id="petitionParagraph">Sign the petition using your mouse in the form below.</p>
+            </div>
         </div>
         <form method="POST" class="petition">
             <div class="inputPetition">
                 <input type="hidden" name="signature" id="signature">
                 <canvas id="sigCanvas" width="500" height="150"></canvas>
             </div>
-            <button name="button" id="submit">Let them eat cake!</button>
+            <button name="button" id="submit">LET THEM EAT CAKE!</button>
             <p>(And have it, too!)</p>
             <input type="hidden" name="_csrf" value="{{csrfToken}}">
             {{#if error}}

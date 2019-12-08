@@ -56,6 +56,12 @@
     font-weight: bold;
 }
 
+@font-face {
+    font-family: "Monument";
+    src: url("/fonts/Monument-Regular.otf");
+    font-weight: bold;
+}
+
 body {
     height: 100vh;
 }
@@ -89,8 +95,8 @@ p.logout {
 }
 
 h1 {
-    font-family: "Gotham Regular";
-    color: blue;
+    font-family: "Monument";
+    color: rgb(0, 255, 0);
     font-weight: bold;
     font-size: 5.5vh;
     opacity: 2;
@@ -106,7 +112,7 @@ footer {
     height: 98%;
     width: 100%;
     z-index: 0;
-    background-image: url(/img/rustbig12.jpg);
+    background-image: url(/img/zid.jpg);
 }
 
 .loginContainer {
@@ -116,7 +122,7 @@ footer {
     height: 100%;
     width: 100%;
     z-index: 0;
-    background-image: url(/img/rustbig12.jpg);
+    background-image: url(/img/zid.jpg);
 }
 
 .content {
@@ -176,7 +182,8 @@ input {
 .input p {
     font-family: "Gotham Medium";
     padding: 0.3vh 0.7vw;
-    background-color: rgba(255, 255, 255, 0.3);
+    /* background-color: rgba(255, 255, 255, 0.3); */
+    background-color: rgb(0, 0, 255);
     display: inline-block;
     margin: 0.5vh 0;
     margin-top: 0;
@@ -190,8 +197,10 @@ input {
 
 .input input {
     background-color: rgba(0, 0, 0, 0.5);
+
     color: yellow;
     padding: 2px;
+    border: none;
 }
 
 .loginLink {
@@ -219,7 +228,7 @@ input {
 
 .ribbon {
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
+    /* background-color: rgba(0, 0, 0, 0.7); */
     margin-bottom: 20px;
     /* border: 3px groove yellow; */
 }
@@ -274,12 +283,16 @@ input {
 }
 
 .info {
-    /* border: 3px groove yellow; */
+    border: 2px solid black;
     width: 100%;
     margin: 0 auto;
-    color: white;
+    color: black;
     padding: 2vh;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.info p {
+    color: black;
 }
 
 .profileInfo {
@@ -384,12 +397,13 @@ li {
 }
 
 #submit {
-    margin-top: 3vh;
+    margin-top: 1vh;
     margin-bottom: 1vh;
-    border: 2px ridge yellow;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: magenta;
-    height: 33px;
+    border: none;
+    background-color: white;
+    color: black;
+    height: 25px;
+    width: 110px;
     font: 16px "Gotham Medium";
 }
 

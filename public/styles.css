@@ -174,13 +174,19 @@ footer {
 }
 
 input {
-    font-size: 20px;
+    font: 16px "Gotham Medium";
     width: 200px;
     margin: 5px 0;
+    text-align: center;
+}
+
+input::-webkit-input-placeholder {
+    color: black;
+    font: 16px "Gotham Medium";
 }
 
 .input p {
-    font-family: "Gotham Medium";
+    font: 16px "Gotham Medium";
     padding: 0.3vh 0.7vw;
     /* background-color: rgba(255, 255, 255, 0.3); */
     background-color: rgb(0, 0, 255);
@@ -196,16 +202,27 @@ input {
 }
 
 .input input {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: yellow;
+    /* background-color: rgba(0, 0, 0, 0.5); */
 
-    color: yellow;
+    color: black;
     padding: 2px;
     border: none;
 }
 
+.textInput {
+    margin-top: 50px;
+}
+
 .loginLink {
+    position: absolute;
+    top: 30px;
+    right: 30px;
     text-align: center;
     margin-top: 5px;
+    border: 3px solid rgb(0, 255, 0);
+    padding: 5px;
+    padding-right: 7px;
 }
 
 .loginLink p {
@@ -216,9 +233,11 @@ input {
 
 .loginLink a {
     margin-top: 20px;
-    color: yellow;
+    color: rgb(0, 255, 0);
     font-size: 20px;
     font-family: "Gotham Medium";
+    text-decoration: none;
+    font-style: italic;
 }
 
 .textDiv {
@@ -397,14 +416,18 @@ li {
 }
 
 #submit {
-    margin-top: 1vh;
+    margin-top: 2vh;
     margin-bottom: 1vh;
     border: none;
     background-color: white;
     color: black;
-    height: 25px;
+    height: 22px;
     width: 110px;
     font: 16px "Gotham Medium";
+}
+
+#submit.petition-button {
+    height: 40px;
 }
 
 #submit.profile-button {

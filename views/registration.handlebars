@@ -3,6 +3,9 @@
    {{/if}}
 <div class="container">
     <div class="content">
+        <div class="loginLink">
+            <a href="/login">LOG IN</a>
+        </div>
         <div class="textDiv">
             <div class="ribbon">
                 <h1>A PETITION AGAINST VIOLENCE TOWARDS OPPONENTS OF ARBITRARY CAUSES FOR PETITIONS</h1>
@@ -15,30 +18,28 @@
             <input type="hidden" name="_csrf" value="{{csrfToken}}">
             <div class="textInput">
                 <div class="input">
-                    <p>FIRST NAME</p>
+                    <!-- <p>FIRST NAME</p> -->
                     <br>
-                    <input type="text" name="first" id="first" autocomplete="off">
+                    <input type="text" name="first" id="first" autocomplete="off" placeholder="FIRST NAME">
                 </div>
                 <div class="input">
-                    <p>LAST NAME</p>
+                    <!-- <p>LAST NAME</p> -->
                     <br>
-                    <input type="text" name="last" id="last" autocomplete="off">
+                    <input type="text" name="last" id="last" autocomplete="off" placeholder="LAST NAME">
                 </div>
                 <div class="input">
-                    <p>EMAIL</p>
+                    <!-- <p>EMAIL</p> -->
                     <br>
-                    <input type="text" name="email" id="email" autocomplete="off">
+                    <input type="text" name="email" id="email" autocomplete="off" placeholder="EMAIL">
                 </div>
                 <div class="input">
-                    <p>PASSWORD</p>
+                    <!-- <p>PASSWORD</p> -->
                     <br>
-                    <input type="password" name="password" id="password" autocomplete="off">
+                    <input type="password" name="password" id="password" autocomplete="off" placeholder="PASSWORD">
                 </div>
             </div>
             <button name="button" id="submit">SIGN UP</button>
-            <div class="loginLink">
-                <p>...or, if already a member, please do     </p><a href="/login">LOG IN</a>
-            </div>
+
 
         </form>
     </div>

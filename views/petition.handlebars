@@ -4,11 +4,16 @@
 <div class="container">
     <div class="content">
 
-
+        <div class="loginLink">
+            <a href="/logout">LOGOUT</a>
+        </div>
         <div class="textDiv">
             <div class="ribbon custom-petition">
-                <h1>The petition itself.</h1>
-                <p id="petitionParagraph">Sign the petition using your mouse in the form below.</p>
+                <h1>THE PETITION ITSELF.</h1>
+                <div class="info">
+                    <p id="petitionParagraph">Sign the petition using your mouse in the form below.</p>
+                </div>
+
             </div>
         </div>
         <form method="POST" class="petition">
@@ -16,8 +21,7 @@
                 <input type="hidden" name="signature" id="signature">
                 <canvas id="sigCanvas" width="500" height="150"></canvas>
             </div>
-            <button name="button" id="submit">LET THEM EAT CAKE!</button>
-            <p>(And have it, too!)</p>
+            <button name="button" id="submit" class="petition-button">LET THEM EAT CAKE!</button>
             <input type="hidden" name="_csrf" value="{{csrfToken}}">
             {{#if error}}
                    <div class ="error"> Oops! something went wrong</div>
@@ -25,9 +29,7 @@
         </form>
 
     </div>
-    <div class="logout">
-        <a href="/logout">LOGOUT</a>
-    </div>
+
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="sig-canvas.js"></script>
 

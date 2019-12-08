@@ -125,11 +125,13 @@ app.post("/login", (req, res) => {
             if (isMatch) {
                 getIfSigned(id)
                     .then(({ rows }) => {
+                        console.log("if signed rows: ", rows[0]);
                         if (rows[0]) {
                             req.session.signedId = rows[0].sig_id;
                             req.session.regId = id;
                             res.redirect("/thanks");
-                        } else {
+                        } else if (rows[0] == undefined) {
+                            req.session.regId = id;
                             res.redirect("/petition");
                         }
                     })

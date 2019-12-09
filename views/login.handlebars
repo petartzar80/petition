@@ -2,19 +2,18 @@
        <div class ="error"> Oops! something went wrong</div>
    {{/if}}
 <div class="loginContainer">
-    <div class="textDiv" id="loginDiv">
-        <h1>Logging in.</h1>
-        <form method="POST" class="inputField" id="loginInput">
+    <div class="textDiv loginDiv">
+        <h1>LOGGING IN.</h1>
+        <form method="POST" class="inputField loginInput">
             <input type="hidden" name="_csrf" value="{{csrfToken}}">
 
             <div class="textInput">
                 <div class="input">
-                    <p>EMAIL</p>
-                    <input type="text" name="email" id="email">
+                    <input type="text" name="email" id="email" placeholder="EMAIL" autocomplete="off">
                 </div>
                 <div class="input">
                     <p>PASSWORD</p>
-                    <input type="password" name="password" id="password">
+                    <input type="password" name="password" id="password" placeholder="PASSWORD" autocomplete="off">
                 </div>
 
             </div>

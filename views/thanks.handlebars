@@ -3,7 +3,9 @@
    {{/if}}
 <div class="container">
     <div class="content">
-
+        <div class="loginLink">
+            <a href="/logout">LOGOUT</a>
+        </div>
         <div class="textDiv">
             <div class="thanks">
                 <div class="ribbon">
@@ -15,19 +17,18 @@
                 <div class="submit thanks-button">
                     <a href="/signers">FANCY CHECKING {{count}} SIGNERS?</a>
                 </div>
-
-                <!-- <a href="/signers" class="linkButton">FANCY CHECKING {{count}} SIGNERS?</a> -->
                 <br>
+                <div class="submit thanks-button">
+                    <a href="/profile/edit" class="thanks-button">EDIT PROFILE</a>
+                </div>
+                <form action="/signature/delete" method="POST">
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <button class="submit thanks-button delete">DELETE YOUR SIGNATURE</button>
+                    <!-- <button class="deleteButton">DELETE YOUR SIGNATURE</button> -->
+                </form>
             </div>
-            <a href="/profile/edit" class="thanks-button">EDIT PROFILE</a>
-            <form action="/signature/delete" method="POST">
-                <input type="hidden" name="_csrf" value="{{csrfToken}}">
-                <button class="deleteButton">DELETE YOUR SIGNATURE</button>
-            </form>
+
         </div>
 
-    </div>
-    <div class="logout">
-        <a href="/logout">LOGOUT</a>
     </div>
 </div>

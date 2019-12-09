@@ -465,6 +465,10 @@ li {
     text-decoration: none;
 }
 
+.submit.thanks-button.delete {
+    margin-top: 18px;
+}
+
 #petitionParagraph {
     font-size: 18px;
 }

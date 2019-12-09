@@ -3,14 +3,18 @@
    {{/if}}
 <div class="container">
     <div class="content" id="signersContent">
-
+        <div class="loginLink">
+            <a href="/logout">LOGOUT</a>
+        </div>
         <div class="textDiv">
             <div class="ribbon custom-signers">
                 {{#if ./extractedCity}}
-                <h1 class="signersHeadline">All the virtuous signers from: {{town}}</h1>
+                <h1 class="signersHeadline">ALL THE VIRTUOUS SIGNERS FROM: {{town}}</h1>
                 {{else}}
-                <h1 class="signersHeadline">All the virtuous signers.</h1>
-                <p>You are in outstanding company!</p>
+                <h1 class="signersHeadline">ALL THE VIRTUOUS SIGNERS.</h1>
+                <div class="info signers">
+                    <p>You are in outstanding company!</p>
+                </div>
                 {{/if}}
             </div>
 
@@ -37,8 +41,5 @@
             {{/rows}}
         </div>
         </div>
-    </div>
-    <div class="logout">
-        <a href="/logout">LOGOUT</a>
     </div>
 </div>

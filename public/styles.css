@@ -63,7 +63,8 @@
 }
 
 body {
-    height: 100vh;
+    height: 100%;
+    overflow-y: hidden;
 }
 
 canvas {
@@ -109,10 +110,12 @@ footer {
     position: fixed;
     width: 100%;
     bottom: 0px;
+    height: 20px;
+    padding: 2px;
 }
 
 .container {
-    height: 98%;
+    height: 100vh;
     width: 100%;
     z-index: 0;
     background-image: url(/img/zid.jpg);
@@ -133,7 +136,8 @@ footer {
 }
 
 .content {
-    height: 95%;
+    height: 100vh;
+    /* height: 95%; */
     display: grid;
     align-items: center;
     grid-template-rows: 0.8fr 1.2fr;
@@ -195,7 +199,6 @@ input::-webkit-input-placeholder {
 .input p {
     font: 16px "Gotham Medium";
     padding: 0.3vh 0.7vw;
-    /* background-color: rgba(255, 255, 255, 0.3); */
     background-color: rgb(0, 0, 255);
     display: inline-block;
     margin: 0.5vh 0;
@@ -210,7 +213,6 @@ input::-webkit-input-placeholder {
 
 .input input {
     background-color: yellow;
-    /* background-color: rgba(0, 0, 0, 0.5); */
 
     color: black;
     padding: 2px;
@@ -254,9 +256,7 @@ input::-webkit-input-placeholder {
 
 .ribbon {
     width: 100%;
-    /* background-color: rgba(0, 0, 0, 0.7); */
     margin-bottom: 20px;
-    /* border: 3px groove yellow; */
 }
 
 .ribbon.custom-profile {
@@ -279,19 +279,19 @@ input::-webkit-input-placeholder {
 }
 
 .ribbon.custom-edit {
-    width: 55%;
+    width: 800px;
+    /* width: 55%; */
     margin: 0 auto;
     margin-bottom: 30px;
 }
 
 .signersDiv {
-    padding: 20px;
-    border: 2px outset buttonface;
+    padding: 10px;
+    border: none;
     color: white;
     text-align: center;
     width: 40%;
     margin: 0 auto;
-    margin-top: 10vh;
     font-family: "Veljovic";
     background-color: rgba(0, 0, 0, 0.7);
 }
@@ -301,7 +301,11 @@ input::-webkit-input-placeholder {
 }
 
 .signersHeadline {
-    margin-top: 400px;
+    margin-top: 500px;
+}
+
+.info.signers {
+    width: 40%;
 }
 
 .textDiv li {
@@ -407,8 +411,11 @@ input::-webkit-input-placeholder {
     z-index: 0.5;
 }
 
-#editInput {
+/* #editInput {
     height: 50vh;
+    margin-top: 70px;
+} */
+.edit-input {
     margin-top: 70px;
 }
 

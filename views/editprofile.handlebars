@@ -6,42 +6,35 @@
 
         <div class="textDiv">
 
-            <form method="POST" class="inputField" id="editInput">
+            <form method="POST" class="inputField edit-input">
                 <div class="ribbon custom-edit">
-                    <h1>Edit profile</h1>
+                    <h1>REORGANIZE YOUR DATA.</h1>
                 </div>
                 <div class="input">
-                    <p>FIRST NAME</p>
                     <input type="text" name="first" value={{first}} required>
                 </div>
                 <div class="input">
-                    <p>LAST NAME</p>
                     <input type="text" name="last" value={{last}} required>
                 </div>
                 <div class="input">
-                    <p>EMAIL</p>
                     <input type="text" name="email" value={{email}} required>
                 </div>
                 <div class="input">
-                    <p>PASSWORD</p>
-                    <input type="password" name="password" value="">
+                    <input type="password" name="password" value="" placeholder="PASSWORD">
                 </div>
                 <div class="input">
-                    <p>AGE</p>
-                    <input type="text" name="age" value={{age}}>
+                    <input type="text" name="age" placeholder="AGE" value={{age}}>
                 </div>
                 <div class="input">
-                    <p>CITY</p>
-                    <input type="text" name="city" value={{city}}>
+                    <input type="text" name="city" placeholder="CITY" value={{city}}>
                 </div>
                 <div class="input">
-                    <p>HOMEPAGE</p>
-                    <input type="text" name="page" value={{page}}>
+                    <input type="text" name="page"  placeholder="HOMEPAGE"value={{page}}>
                 </div>
 
                 <input type="hidden" name="_csrf" value="{{csrfToken}}">
 
-                <button class="updateButton">UPDATE</button>
+                <button class="submit">UPDATE</button>
             </form>
         </div>
     </div>

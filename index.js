@@ -62,8 +62,10 @@ app.get("/registration", (req, res) => {
 });
 
 app.post("/registration", (req, res) => {
-    let firstName = req.body.first;
-    let lastName = req.body.last;
+    let firstName =
+        req.body.first.charAt(0).toUpperCase() + req.body.first.slice(1);
+    let lastName =
+        req.body.last.charAt(0).toUpperCase() + req.body.last.slice(1);
     let email = req.body.email;
     let origPswd = req.body.password;
     let password = "";
@@ -93,7 +95,7 @@ app.get("/profile", (req, res) => {
 
 app.post("/profile", (req, res) => {
     let age = req.body.age;
-    let city = req.body.city;
+    let city = req.body.city.charAt(0).toUpperCase() + req.body.city.slice(1);
     let homepage = req.body.homepage;
     let userId = req.session.regId;
     if (age || city || homepage) {
@@ -180,7 +182,7 @@ app.get("/thanks", (req, res) => {
     let renderingObject = {};
     showSignature(idCookie)
         .then(({ rows }) => {
-            renderingObject.first = rows[0].first;
+            renderingObject.first = rows[0].first.toUpperCase();
             renderingObject.signature = rows[0].signature;
         })
         .then(() => {
@@ -223,15 +225,16 @@ app.get("/profile/edit", (req, res) => {
 app.post("/profile/edit", (req, res) => {
     if (!req.body.password) {
         updateNoPswd(
-            req.body.first,
-            req.body.last,
+            req.body.first.charAt(0).toUpperCase() + req.body.first.slice(1),
+            req.body.last.charAt(0).toUpperCase() + req.body.last.slice(1),
             req.body.email,
             req.session.regId
         )
             .then(() => {
                 upsert(
                     req.body.age,
-                    req.body.city,
+                    req.body.city.charAt(0).toUpperCase() +
+                        req.body.city.slice(1),
                     req.body.page,
                     req.session.regId
                 );

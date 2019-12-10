@@ -8,25 +8,19 @@
 
 -   gifs
 
----
-
 ## Demo
 
 -   link
 
----
-
 ## Tech
 
-CSS, JavaScript, Handlebars.js, Canvas, Node.js / Express, PostgreSQL and Heroku
-
----
+CSS, JavaScript, Handlebars.js, Canvas, Node.js / Express, PostgreSQ, Heroku
 
 ## Features
 
 -   Profile registration + possibility of later editing, log in / log out
 
--   Input of registration info is divided into required (non-entering renders error) and optional
+-   Input of registration info divided into required (non-entering renders error) and optional
 
 -   Registered user can sign the petition (Canvas), delete the signature and re-do it
 
@@ -36,4 +30,14 @@ CSS, JavaScript, Handlebars.js, Canvas, Node.js / Express, PostgreSQL and Heroku
 
 -   Logged-in users cannot access the registration or login pages (redirection). Logged-out users can only access the registration and login
 
----
+## Goals
+
+-   Learn modular website design with Handlebars + Canvas for the online signature
+
+-   Getting familiar with Express / Node.js / Cookies
+
+-   Building user profiles
+
+-   Recognizing vulnerabilities, using CSURF
+
+-   Deploying a non-static site for the first time (Heroku)

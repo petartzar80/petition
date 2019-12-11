@@ -20,7 +20,9 @@ CSS, JavaScript, Handlebars.js, Canvas, Node.js / Express, PostgreSQ, Heroku
 
 -   Profile registration + possibility of later editing, log in / log out
 
--   Input of registration info divided into required (non-entering renders error) and optional
+-   Registration data divided into required (non-entering renders error) and optional
+
+-   Passwords encrypted using bcrypt - a password hashing function
 
 -   Registered user can sign the petition (Canvas), delete the signature and re-do it
 
@@ -35,6 +37,8 @@ CSS, JavaScript, Handlebars.js, Canvas, Node.js / Express, PostgreSQ, Heroku
 -   Learn modular website design with Handlebars + Canvas for the online signature
 
 -   Getting familiar with Express / Node.js / Cookies
+
+-   Learning to use SQL databases, write database queries
 
 -   Building user profiles
 

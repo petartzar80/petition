@@ -282,6 +282,7 @@ app.post("/profile/edit", (req, res) => {
 app.get("/signers", (req, res) => {
     getFullName()
         .then(({ rows }) => {
+            console.log("signers rows: ", rows);
             res.render("signers", { rows });
         })
         .catch(err => {
@@ -297,7 +298,7 @@ app.get("/signers/:city", (req, res) => {
             res.render("signers", {
                 rows,
                 extractedCity: true,
-                town: rows[0].residence
+                town: rows[0].residence.toUpperCase()
             });
         })
         .catch(err => {

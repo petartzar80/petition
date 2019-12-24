@@ -1,12 +1,12 @@
 {{#if error}}
-       <div class="error"> Oops! something went wrong</div>
-   {{/if}}
+   <div class="error"> Oops! something went wrong</div>
+{{/if}}
 <div class="container">
     <div class="content">
-        <div class="loginLink">
+        <div class="login-link">
             <a href="/logout">LOGOUT</a>
         </div>
-        <div class="textDiv">
+        <div class="text-div">
             <div class="thanks">
                 <div class="ribbon">
                     <h1>WE APPRECIATE YOUR SIGNATURE, {{first}}!</h1>
@@ -24,7 +24,6 @@
                 <form action="/signature/delete" method="POST">
                     <input type="hidden" name="_csrf" value="{{csrfToken}}">
                     <button class="submit thanks-button delete">DELETE YOUR SIGNATURE</button>
-                    <!-- <button class="deleteButton">DELETE YOUR SIGNATURE</button> -->
                 </form>
             </div>
 

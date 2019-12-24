@@ -179,7 +179,7 @@ footer {
     margin: 0 auto;
 }
 
-.inputPetition {
+.input-petition {
     text-align: center;
     margin: 0 auto;
 }
@@ -451,7 +451,7 @@ li {
     font: 16px "Gotham Medium";
 }
 
-#submit.petition-button {
+.submit.petition-button {
     height: 40px;
 }
 
@@ -477,7 +477,7 @@ li {
     margin-top: 18px;
 }
 
-#petitionParagraph {
+.petition-paragraph {
     font-size: 18px;
 }
 

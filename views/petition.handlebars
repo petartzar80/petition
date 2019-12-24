@@ -1,31 +1,28 @@
 {{#if error}}
-       <div class ="error"> Oops! something went wrong</div>
-   {{/if}}
+    <div class ="error"> Oops! something went wrong</div>
+{{/if}}
 <div class="container">
     <div class="content">
 
-        <div class="loginLink">
+        <div class="login-link">
             <a href="/logout">LOGOUT</a>
         </div>
-        <div class="textDiv">
+        <div class="text-div">
             <div class="ribbon custom-petition">
                 <h1>THE PETITION ITSELF.</h1>
                 <div class="info">
-                    <p id="petitionParagraph">Sign the petition using your mouse in the form below.</p>
+                    <p class="petition-paragraph">Sign the petition using your mouse in the form below.</p>
                 </div>
 
             </div>
         </div>
         <form method="POST" class="petition">
-            <div class="inputPetition">
+            <div class="input-petition">
                 <input type="hidden" name="signature" id="signature">
                 <canvas id="sigCanvas" width="500" height="150"></canvas>
             </div>
-            <button name="button" id="submit" class="petition-button">LET THEM EAT CAKE!</button>
+            <button name="button" class="submit petition-button">LET THEM EAT CAKE!</button>
             <input type="hidden" name="_csrf" value="{{csrfToken}}">
-            {{#if error}}
-                   <div class ="error"> Oops! something went wrong</div>
-               {{/if}}
         </form>
 
     </div>

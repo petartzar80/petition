@@ -1,24 +1,24 @@
 {{#if error}}
-       <div class ="error"> Oops! something went wrong</div>
-   {{/if}}
+   <div class ="error"> Oops! something went wrong</div>
+{{/if}}
 <div class="container">
-    <div class="content" id="signersContent">
-        <div class="loginLink">
+    <div class="content signers-content">
+        <div class="login-link">
             <a href="/logout">LOGOUT</a>
         </div>
-        <div class="textDiv">
+        <div class="text-div">
             <div class="ribbon custom-signers">
                 {{#if ./extractedCity}}
-                <h1 class="signersHeadline">ALL THE VIRTUOUS SIGNERS FROM {{town}}</h1>
+                <h1 class="signers-headline">ALL THE VIRTUOUS SIGNERS FROM {{town}}</h1>
                 {{else}}
-                <h1 class="signersHeadline">ALL THE VIRTUOUS SIGNERS.</h1>
+                <h1 class="signers-headline">ALL THE VIRTUOUS SIGNERS.</h1>
                 <div class="info signers">
                     <p>You are in outstanding company!</p>
                 </div>
                 {{/if}}
             </div>
 
-        <div class="signersDiv">
+        <div class="signers-div">
 
             {{#rows}}
                 <ul>

@@ -285,7 +285,7 @@ input::-webkit-input-placeholder {
     margin-bottom: 30px;
 }
 
-.signersDiv {
+.signers-div {
     padding: 10px;
     border: none;
     color: white;
@@ -296,11 +296,11 @@ input::-webkit-input-placeholder {
     background-color: rgba(0, 0, 0, 0.7);
 }
 
-.signersDiv a {
+.signers-div a {
     color: yellow;
 }
 
-.signersHeadline {
+.signers-headline {
     margin-top: 500px;
 }
 
@@ -420,12 +420,12 @@ input::-webkit-input-placeholder {
     margin-top: 70px;
 }
 
-#signersContent {
+.signers-content {
     padding-top: 100px;
     grid-template-rows: 30% 70%;
 }
 
-#signersContent p,
+.signers-content p,
 li {
     font-size: 20px;
 }

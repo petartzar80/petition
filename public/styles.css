@@ -223,7 +223,7 @@ input::-webkit-input-placeholder {
     margin-top: 50px;
 }
 
-.loginLink {
+.login-link {
     position: absolute;
     top: 30px;
     right: 30px;
@@ -234,13 +234,13 @@ input::-webkit-input-placeholder {
     padding-right: 7px;
 }
 
-.loginLink p {
+.login-link p {
     margin-top: 0.5vh;
     bottom: 0;
     color: white;
 }
 
-.loginLink a {
+.login-link a {
     margin-top: 20px;
     color: rgb(0, 255, 0);
     font-size: 20px;
@@ -249,7 +249,7 @@ input::-webkit-input-placeholder {
     font-style: italic;
 }
 
-.textDiv {
+.text-div {
     text-align: center;
     margin-top: 30px;
 }

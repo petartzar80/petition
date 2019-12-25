@@ -156,11 +156,11 @@ footer {
     padding: 1vh 1vw;
 }
 
-#profileContent {
+.content.profile-div {
     grid-template-rows: 25% 75%;
 }
 
-#profileContent h1 {
+.content.profile-div h1 {
     margin-top: 300px;
 }
 
@@ -219,7 +219,7 @@ input::-webkit-input-placeholder {
     border: none;
 }
 
-.textInput {
+.text-input {
     margin-top: 50px;
 }
 

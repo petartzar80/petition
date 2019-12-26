@@ -5,32 +5,6 @@
 }
 
 @font-face {
-    font-family: "Gotham";
-    src: url("/fonts/GothaProLig.otf");
-    font-style: normal;
-    font-weight: normal;
-}
-
-@font-face {
-    font-family: "Gotham";
-    src: url("/fonts/GothaProLig.otf");
-    font-weight: bold;
-}
-
-@font-face {
-    font-family: "Gotham Regular";
-    src: url("/fonts/GothaProReg.otf");
-    font-style: normal;
-    font-weight: normal;
-}
-
-@font-face {
-    font-family: "Gotham Regular";
-    src: url("/fonts/GothaProReg.otf");
-    font-weight: bold;
-}
-
-@font-face {
     font-family: "Gotham Medium";
     src: url("/fonts/GothaProMed.otf");
     font-style: normal;
@@ -254,33 +228,31 @@ input::-webkit-input-placeholder {
     margin-top: 30px;
 }
 
-.ribbon {
+.headline {
     width: 100%;
     margin-bottom: 20px;
 }
 
-.ribbon.custom-profile {
+.headline.custom-profile {
     width: 50%;
     margin: 0 auto;
     margin-bottom: 20px;
 }
 
-.ribbon.custom-petition {
+.headline.custom-petition {
     width: 500px;
     margin: 0 auto;
     margin-bottom: 20px;
     padding-bottom: 30px;
 }
 
-.ribbon.custom-signers {
+.headline.custom-signers {
     width: 80%;
     padding-bottom: 20px;
     margin: 0 auto;
 }
 
-.ribbon.custom-edit {
-    width: 800px;
-    /* width: 55%; */
+.headline.custom-edit {
     margin: 0 auto;
     margin-bottom: 30px;
 }
@@ -417,6 +389,7 @@ input::-webkit-input-placeholder {
     margin-top: 70px;
 } */
 .edit-input {
+    margin: 0 auto;
     margin-top: 70px;
 }
 

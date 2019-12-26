@@ -2,7 +2,7 @@ let isDrawing = false;
 let x = 0;
 let y = 0;
 
-const sigCanvas = document.getElementById("sigCanvas");
+const sigCanvas = document.getElementById("sig-canvas");
 const context = sigCanvas.getContext("2d");
 
 const rect = sigCanvas.getBoundingClientRect();

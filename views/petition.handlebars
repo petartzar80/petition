@@ -7,7 +7,7 @@
             <a href="/logout">LOGOUT</a>
         </div>
         <div class="text-div">
-            <div class="ribbon custom-petition">
+            <div class="headline custom-petition">
                 <h1>THE PETITION ITSELF.</h1>
                 <div class="info">
                     <p class="petition-paragraph">Sign the petition using your mouse in the form below.</p>
@@ -17,7 +17,7 @@
         <form method="POST" class="petition">
             <div class="input-petition">
                 <input type="hidden" name="signature" id="signature">
-                <canvas width="500" height="150"></canvas>
+                <canvas width="500" height="150" id="sig-canvas"></canvas>
             </div>
             <button name="button" class="submit petition-button">LET THEM EAT CAKE!</button>
             <input type="hidden" name="_csrf" value="{{csrfToken}}">

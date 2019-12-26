@@ -148,9 +148,10 @@ footer {
 }
 
 .arrow-down {
+    display: none;
     color: magenta;
     font-size: 9rem;
-    margin: 0 auto;
+    margin: 3vh auto;
     animation-duration: 1.8s;
     animation-name: blend;
     animation-iteration-count: infinite;
@@ -315,34 +316,6 @@ input::-webkit-input-placeholder {
 
 .info p {
     color: black;
-}
-
-@media (max-width: 415px) {
-    .container {
-        width: 100vw;
-        height: 100vh;
-        overflow: scroll;
-    }
-    .content {
-        max-width: 100%;
-    }
-    .info {
-        max-width: 360px;
-        max-height: 50vh;
-    }
-    .info p {
-        font-size: 1rem;
-    }
-    .headline h1 {
-        margin-top: 0;
-        font-size: 1.5rem;
-    }
-    .input-field {
-        width: 80vw;
-    }
-    .text-input {
-        margin-top: 0;
-    }
 }
 
 .profileInfo {
@@ -510,4 +483,56 @@ li {
 }
 
 #password {
+}
+
+.display-bottom {
+    display: none;
+}
+
+@media (max-width: 415px) {
+    .container {
+        width: 100vw;
+        height: 100vh;
+        overflow: scroll;
+    }
+    .content {
+        max-width: 100%;
+    }
+    .info {
+        max-width: 360px;
+        max-height: 50vh;
+    }
+    .info p {
+        font-size: 1rem;
+    }
+    .headline h1 {
+        margin-top: 0;
+        font-size: 1.5rem;
+    }
+    .input-field {
+        width: 80vw;
+    }
+    .text-input {
+        margin-top: 0;
+    }
+    .error {
+        font-size: 2rem;
+    }
+    .login-link {
+        position: relative;
+        margin: 0 auto;
+        top: auto;
+        right: auto;
+    }
+    .display-top {
+        display: none;
+    }
+    .display-bottom {
+        display: inline-block;
+        margin-top: 2vh;
+        margin-bottom: 5vh;
+    }
+    .arrow-down {
+        display: inline-block;
+    }
 }

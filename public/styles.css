@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+:root {
+    font-size: calc(1vw + 1vh + 0.5vmin);
+}
+
 @font-face {
     font-family: "Gotham Medium";
     src: url("/fonts/GothaProMed.otf");
@@ -59,6 +63,7 @@ li {
 p {
     font-family: "Veljovic";
     color: white;
+    font-size: 16px;
 }
 
 p.logout {
@@ -69,7 +74,8 @@ h1 {
     font-family: "Monument";
     color: rgb(0, 255, 0);
     font-weight: bold;
-    font-size: 5.5vh;
+    font-size: 1.7rem;
+    /* font-size: 5.5vh; */
     opacity: 2;
     padding: 2vh 2vw;
 }
@@ -109,7 +115,7 @@ footer {
     height: 100vh;
     display: grid;
     align-items: center;
-    grid-template-rows: 0.8fr 1.2fr;
+    /* grid-template-rows: 0.8fr 1.2fr; */
     z-index: 1;
     opacity: 1;
     width: 90%;
@@ -166,6 +172,7 @@ footer {
 
 .input {
     width: 200px;
+    height: 50px;
     text-align: center;
     margin: 0 auto;
 }
@@ -485,42 +492,15 @@ li {
     display: none;
 }
 
-@media (max-width: 415px) {
+@media (max-width: 1220px) {
     .container {
         width: 100vw;
         height: 100vh;
         overflow: scroll;
     }
-    .content {
-        max-width: 100%;
-    }
-    .info {
-        max-width: 360px;
-        max-height: 50vh;
-    }
-    .info p {
-        font-size: 1rem;
-    }
     .headline h1 {
-        margin-top: 0;
         font-size: 1.5rem;
     }
-    .input-field {
-        width: 80vw;
-    }
-    .text-input {
-        margin-top: 0;
-    }
-    .error {
-        font-size: 2rem;
-    }
-
-    .arrow-down {
-        display: inline-block;
-    }
-}
-
-@media (max-width: 1220px) {
     .login-link {
         position: relative;
         margin: 0 auto;
@@ -534,5 +514,35 @@ li {
         display: inline-block;
         margin-top: 2vh;
         margin-bottom: 5vh;
+    }
+}
+
+@media (max-width: 608px) {
+    .content {
+        max-width: 100%;
+    }
+    .info {
+        max-width: 360px;
+        max-height: 50vh;
+    }
+    .info p {
+        font-size: 1rem;
+    }
+    .headline h1 {
+        margin-top: 0;
+        font-size: 2rem;
+    }
+    .input-field {
+        width: 80vw;
+    }
+    .text-input {
+        margin-top: 0;
+    }
+    .error {
+        font-size: 2rem;
+    }
+
+    .arrow-down {
+        display: inline-block;
     }
 }

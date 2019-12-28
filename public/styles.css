@@ -129,7 +129,6 @@ footer {
     width: 40vw;
     height: 35vh;
     margin: 0 auto;
-    padding: 1vh 1vw;
 }
 
 .content.profile-div {
@@ -217,9 +216,9 @@ input::-webkit-input-placeholder {
     border: none;
 }
 
-.text-input {
+/* .text-input {
     margin-top: 50px;
-}
+} */
 
 .login-link {
     position: absolute;
@@ -229,6 +228,7 @@ input::-webkit-input-placeholder {
     margin-top: 5px;
     border: 3px solid rgb(0, 255, 0);
     padding: 5px;
+    padding-top: 0px;
     padding-right: 7px;
 }
 
@@ -319,6 +319,7 @@ input::-webkit-input-placeholder {
 
 .info p {
     color: black;
+    font-size: 0.55rem;
 }
 
 .profileInfo {
@@ -501,6 +502,9 @@ li {
     .headline h1 {
         font-size: 1.5rem;
     }
+    .info p {
+        font-size: 0.7rem;
+    }
     .login-link {
         position: relative;
         margin: 0 auto;
@@ -517,12 +521,18 @@ li {
     }
 }
 
+@media (max-width: 900px) {
+    .info p {
+        font-size: 0.85rem;
+    }
+}
+
 @media (max-width: 608px) {
     .content {
         max-width: 100%;
     }
     .info {
-        max-width: 360px;
+        max-width: 90%;
         max-height: 50vh;
     }
     .info p {

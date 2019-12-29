@@ -3,7 +3,7 @@
 {{/if}}
 <div class="container">
     <div class="content">
-        <div class="login-link">
+        <div class="login-link display-top">
             <a href="/logout">LOGOUT</a>
         </div>
         <div class="text-div">
@@ -20,10 +20,15 @@
                 <div class="submit thanks-button">
                     <a href="/profile/edit" class="thanks-button">EDIT PROFILE</a>
                 </div>
+                <br>
                 <form action="/signature/delete" method="POST">
                     <input type="hidden" name="_csrf" value="{{csrfToken}}">
-                    <button class="submit thanks-button delete">DELETE YOUR SIGNATURE</button>
+                    <button class="submit thanks-button">DELETE YOUR SIGNATURE</button>
                 </form>
+                <br>
+            </div>
+            <div class="login-link display-bottom">
+                <a href="/logout">LOGOUT</a>
             </div>
         </div>
     </div>

@@ -278,7 +278,9 @@ input::-webkit-input-placeholder {
 
 .headline.custom-edit {
     margin: 0 auto;
-    margin-bottom: 30px;
+    margin-top: -10vh;
+    /* margin-bottom: 30px; */
+    text-align: center;
 }
 
 .signers-div {
@@ -416,7 +418,7 @@ input::-webkit-input-placeholder {
 
 .edit-input {
     margin: 0 auto;
-    margin-top: -370px;
+    margin-top: -53vh;
 }
 
 .signers-content {
@@ -519,6 +521,9 @@ li {
         margin-top: 2vh;
         margin-bottom: 5vh;
     }
+    /* .display-bottom.edit-prof {
+        margin-top: 11vh;
+    } */
 }
 
 @media (max-width: 900px) {
@@ -539,7 +544,7 @@ li {
         font-size: 1rem;
     }
     .headline h1 {
-        margin-top: 0;
+        margin-top: -10vh;
         font-size: 2rem;
     }
     .input-field {

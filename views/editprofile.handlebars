@@ -3,7 +3,7 @@
 {{/if}}
 <div class="container">
     <div class="content">
-        <div class="login-link">
+        <div class="login-link display-top">
             <a href="/logout">LOGOUT</a>
         </div>
         <div class="headline custom-edit">
@@ -37,7 +37,11 @@
                 <input type="hidden" name="_csrf" value="{{csrfToken}}">
 
                 <button class="submit">UPDATE</button>
+                <div class="login-link display-bottom edit-prof">
+                    <a href="/logout">LOGOUT</a>
+                </div>
             </form>
+
         <!-- </div> -->
     </div>
 </div>

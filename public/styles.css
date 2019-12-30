@@ -487,11 +487,6 @@ li {
 #password {
 }
 
-#sig-canvas {
-    width: 90vw;
-    max-width: 500px;
-}
-
 .sig-img {
     max-width: 500px;
 }
@@ -509,10 +504,10 @@ li {
     .headline h1 {
         font-size: 1.5rem;
     }
-    /* .info {
-        width: 500px;
+    .info {
+        min-width: 500px;
         margin: 0 auto;
-    } */
+    }
     .info p {
         font-size: 0.7rem;
     }
@@ -531,14 +526,15 @@ li {
         margin-bottom: 5vh;
     }
     .text-div {
-        max-width: 90%;
+        max-width: 100%;
         margin: 0 auto;
     }
     .sig-img {
         max-width: 500px;
     }
     .content.custom-petition {
-        grid-template-rows: 70% 20% 10%;
+        margin-top: -10vh;
+        grid-template-rows: 80% 10% 10%;
         justify-content: center;
     }
 }
@@ -564,6 +560,11 @@ li {
         margin-top: -10vh;
         font-size: 2rem;
     }
+    .headline.custom-petition h1 {
+        margin: 0 auto;
+        text-align: center;
+        max-width: 90vw;
+    }
     .text-div.registration {
         margin-top: 10vh;
     }
@@ -575,9 +576,6 @@ li {
     }
     .error {
         font-size: 2rem;
-    }
-    #sig-canvas {
-        height: 30vh;
     }
     .sig-img {
         max-width: 300px;
@@ -600,5 +598,8 @@ li {
     .info.signers,
     .signers-div {
         min-width: 90%;
+    }
+    #sig-canvas {
+        max-width: 90vw;
     }
 }

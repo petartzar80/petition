@@ -2,8 +2,8 @@
     <div class ="error"> Oops! something went wrong</div>
 {{/if}}
 <div class="container">
-    <div class="content">
-        <div class="login-link">
+    <div class="content custom-petition">
+        <div class="login-link display-top">
             <a href="/logout">LOGOUT</a>
         </div>
         <div class="text-div">
@@ -22,6 +22,9 @@
             <button name="button" class="submit petition-button">LET THEM EAT CAKE!</button>
             <input type="hidden" name="_csrf" value="{{csrfToken}}">
         </form>
+        <div class="login-link display-bottom">
+            <a href="/logout">LOGOUT</a>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>

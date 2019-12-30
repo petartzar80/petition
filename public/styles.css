@@ -487,6 +487,10 @@ li {
 #password {
 }
 
+.sig-img {
+    max-width: 500px;
+}
+
 .display-bottom {
     display: none;
 }
@@ -517,9 +521,13 @@ li {
         margin-top: 2vh;
         margin-bottom: 5vh;
     }
-    /* .display-bottom.edit-prof {
-        margin-top: 11vh;
-    } */
+    .text-div {
+        max-width: 90%;
+        margin: 0 auto;
+    }
+    .sig-img {
+        max-width: 500px;
+    }
 }
 
 @media (max-width: 900px) {
@@ -551,6 +559,9 @@ li {
     }
     .error {
         font-size: 2rem;
+    }
+    .sig-img {
+        max-width: 300px;
     }
 
     .arrow-down {

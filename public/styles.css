@@ -545,11 +545,14 @@ li {
         max-height: 50vh;
     }
     .info p {
-        font-size: 1.5rem;
+        font-size: 1rem;
     }
     .headline h1 {
         margin-top: -10vh;
         font-size: 2rem;
+    }
+    .text-div.registration {
+        margin-top: 10vh;
     }
     .input-field {
         width: 80vw;
@@ -570,6 +573,12 @@ li {
     .signers-content {
         /* margin-top: 20vh; */
         grid-template-rows: 70% 30%;
+    }
+    .headline.custom-signers {
+        width: 100%;
+    }
+    .headline.custom-signers.info p {
+        font-size: 1.2rem;
     }
     .info.signers,
     .signers-div {

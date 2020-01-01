@@ -567,6 +567,14 @@ li {
     }
     .text-div.registration {
         margin-top: 10vh;
+        max-width: 90vw;
+    }
+    .text-div.registration .info {
+        min-width: 90%;
+        max-width: 100%;
+    }
+    .text-div.registration .info p {
+        font-size: 1.2rem;
     }
     .input-field {
         width: 80vw;
@@ -583,6 +591,7 @@ li {
 
     .arrow-down {
         display: inline-block;
+        margin-top: -1vh;
     }
 
     .signers-content {

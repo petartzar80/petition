@@ -4,6 +4,12 @@
     box-sizing: border-box;
 }
 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 :root {
     font-size: calc(1vw + 1vh + 0.5vmin);
 }
@@ -262,7 +268,7 @@ input::-webkit-input-placeholder {
 }
 
 .headline.custom-profile {
-    width: 50%;
+    width: 100%;
     margin: 0 auto;
     margin-bottom: 20px;
 }
@@ -508,8 +514,10 @@ li {
         font-size: 1.5rem;
     }
     .info {
-        min-width: 500px;
         margin: 0 auto;
+        max-width: 90vw;
+        min-width: 90%;
+        max-height: 50vh;
     }
     .info p {
         font-size: 0.7rem;
@@ -616,8 +624,5 @@ li {
     .info.signers,
     .signers-div {
         min-width: 90%;
-    }
-    #sig-canvas {
-        max-width: 90vw;
     }
 }

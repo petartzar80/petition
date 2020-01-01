@@ -4,12 +4,6 @@
     box-sizing: border-box;
 }
 
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
 :root {
     font-size: calc(1vw + 1vh + 0.5vmin);
 }
@@ -104,7 +98,10 @@ footer {
 }
 
 .login-container {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* display: block; */
     position: fixed;
     top: 0px;
     height: 100vh;
@@ -113,9 +110,9 @@ footer {
     background-image: url(/img/zid.jpg);
 }
 
-.login-container h1 {
+/* .login-container h1 {
     margin-top: 150px;
-}
+} */
 
 .content {
     height: 100vh;
@@ -139,7 +136,6 @@ footer {
 
 .content.profile-div {
     grid-template-rows: 25% 75%;
-    justify-content: center;
 }
 
 .content.profile-div h1 {
@@ -159,6 +155,7 @@ footer {
     display: none;
     color: blue;
     font-size: 7rem;
+    font-family: sans-serif;
     margin: 3vh auto;
     animation-duration: 1.8s;
     animation-name: blend;
@@ -265,7 +262,7 @@ input::-webkit-input-placeholder {
 }
 
 .headline.custom-profile {
-    width: 100%;
+    width: 50%;
     margin: 0 auto;
     margin-bottom: 20px;
 }
@@ -306,7 +303,7 @@ input::-webkit-input-placeholder {
 }
 
 .signers-headline {
-    /* margin-top: 500px; */
+    margin-top: 500px;
 }
 
 .info.signers {
@@ -429,8 +426,7 @@ input::-webkit-input-placeholder {
 }
 
 .signers-content {
-    display: flex;
-    justify-content: center;
+    grid-template-rows: 30% 70%;
 }
 
 .signers-content p,
@@ -523,6 +519,7 @@ li {
         margin: 0 auto;
         top: auto;
         right: auto;
+        padding: 1vh;
     }
     .display-top {
         display: none;
@@ -531,12 +528,14 @@ li {
         display: inline-block;
         margin-top: 2vh;
         margin-bottom: 5vh;
-        padding: 0.5vh;
-        padding-right: 1vh;
+        padding-top: 0.8vh;
     }
     .text-div {
         max-width: 100%;
         margin: 0 auto;
+    }
+    .text-div.custom-petition {
+        max-width: 90%;
     }
     .sig-img {
         max-width: 500px;
@@ -560,7 +559,7 @@ li {
     }
     .info {
         max-width: 90vw;
-        min-width: 80vw;
+        min-width: 90%;
         max-height: 50vh;
     }
     .info p {
@@ -601,8 +600,7 @@ li {
 
     .arrow-down {
         display: inline-block;
-        /* margin-top: -1vh; */
-        font-family: sans-serif;
+        margin-top: -1.2vh;
     }
 
     .signers-content {
@@ -619,7 +617,7 @@ li {
     .signers-div {
         min-width: 90%;
     }
-    /* .display-bottom {
-        padding-right: 2vw;
-    } */
+    #sig-canvas {
+        max-width: 90vw;
+    }
 }

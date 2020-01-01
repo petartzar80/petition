@@ -4,6 +4,12 @@
     box-sizing: border-box;
 }
 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 :root {
     font-size: calc(1vw + 1vh + 0.5vmin);
 }
@@ -133,6 +139,7 @@ footer {
 
 .content.profile-div {
     grid-template-rows: 25% 75%;
+    justify-content: center;
 }
 
 .content.profile-div h1 {
@@ -258,7 +265,7 @@ input::-webkit-input-placeholder {
 }
 
 .headline.custom-profile {
-    width: 50%;
+    width: 100%;
     margin: 0 auto;
     margin-bottom: 20px;
 }

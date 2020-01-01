@@ -306,7 +306,7 @@ input::-webkit-input-placeholder {
 }
 
 .signers-headline {
-    margin-top: 500px;
+    /* margin-top: 500px; */
 }
 
 .info.signers {
@@ -429,8 +429,8 @@ input::-webkit-input-placeholder {
 }
 
 .signers-content {
-    padding-top: 100px;
-    grid-template-rows: 30% 70%;
+    display: flex;
+    justify-content: center;
 }
 
 .signers-content p,

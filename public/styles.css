@@ -157,8 +157,8 @@ footer {
 
 .arrow-down {
     display: none;
-    color: magenta;
-    font-size: 9rem;
+    color: blue;
+    font-size: 7rem;
     margin: 3vh auto;
     animation-duration: 1.8s;
     animation-name: blend;
@@ -168,7 +168,7 @@ footer {
 
 @keyframes blend {
     from {
-        color: magenta;
+        color: blue;
     }
 
     to {
@@ -531,6 +531,8 @@ li {
         display: inline-block;
         margin-top: 2vh;
         margin-bottom: 5vh;
+        padding: 0.5vh;
+        padding-right: 1vh;
     }
     .text-div {
         max-width: 100%;
@@ -558,6 +560,7 @@ li {
     }
     .info {
         max-width: 90vw;
+        min-width: 80vw;
         max-height: 50vh;
     }
     .info p {
@@ -598,7 +601,8 @@ li {
 
     .arrow-down {
         display: inline-block;
-        margin-top: -1vh;
+        /* margin-top: -1vh; */
+        font-family: sans-serif;
     }
 
     .signers-content {
@@ -615,7 +619,7 @@ li {
     .signers-div {
         min-width: 90%;
     }
-    #sig-canvas {
-        max-width: 90vw;
-    }
+    /* .display-bottom {
+        padding-right: 2vw;
+    } */
 }

@@ -9,9 +9,7 @@
         <div class="headline custom-edit">
             <h1>REORGANIZE YOUR DATA.</h1>
         </div>
-        <!-- <div class="text-div"> -->
             <form method="POST" class="input-field edit-input">
-
                 <div class="input">
                     <input type="text" name="first" value={{first}} required autocomplete="off">
                 </div>
@@ -33,15 +31,11 @@
                 <div class="input">
                     <input type="text" name="page"  placeholder="HOMEPAGE"value={{page}} autocomplete="off">
                 </div>
-
                 <input type="hidden" name="_csrf" value="{{csrfToken}}">
-
                 <button class="submit">UPDATE</button>
-                <div class="login-link display-bottom edit-prof">
-                    <a href="/logout">LOGOUT</a>
-                </div>
             </form>
-
-        <!-- </div> -->
+            <div class="login-link display-bottom edit-prof">
+                <a href="/logout">LOGOUT</a>
+            </div>
     </div>
 </div>

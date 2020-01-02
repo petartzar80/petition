@@ -81,6 +81,10 @@ canvas {
     background-color: rgba(0, 0, 0, 0.7);
 }
 
+li {
+    list-style-type: none;
+}
+
 .container {
     width: 90vw;
     max-width: 1200px;
@@ -160,6 +164,22 @@ canvas {
 
 .sig-img {
     max-width: 100%;
+}
+
+.signers-div {
+    padding: 10px;
+    border: none;
+    color: white;
+    text-align: center;
+    min-width: 40%;
+    margin: 1em auto;
+    font-family: "Veljovic";
+    background-color: rgba(0, 0, 0, 0.7);
+    font-size: calc(13px + 0.3rem);
+}
+
+.signers-div a {
+    color: yellow;
 }
 
 @media (max-width: 1600px) {

@@ -66,14 +66,58 @@ input {
     text-align: center;
 }
 
-/* @media screen and (min-width: 1600px) {
-    body {
-        font-size: 26px;
+.container {
+    width: 50vw;
+    min-width: 1200px;
+    max-height: 100vh;
+    overflow: hidden;
+    border: 2px solid red;
+    margin: 0 auto;
+}
+
+.login-link {
+    position: absolute;
+    top: calc(5px + 1vw);
+    right: calc(20px + 1vw);
+    text-align: center;
+    /* margin-top: 5px; */
+    border: 3px solid rgb(0, 255, 0);
+    padding: 5px;
+    padding-top: 0px;
+    padding-right: 7px;
+}
+
+.login-link a {
+    /* margin-top: 20px; */
+    color: rgb(0, 255, 0);
+    font-size: 20px;
+    font-family: "Gotham Medium";
+    text-decoration: none;
+    font-style: italic;
+}
+
+.display-bottom {
+    display: none;
+}
+
+@media (max-width: 1600px) {
+    .display-top {
+        display: none;
+        color: blue;
+    }
+    .display-bottom {
+        display: inline-block;
+        position: relative;
+        top: auto;
+        right: auto;
+        /* margin-top: 2vh;
+        margin-bottom: 5vh;
+        padding-top: 0.8vh; */
     }
 }
 
-@media screen and (max-width: 575px) {
+/* @media screen and (max-width: 575px) {
     body {
         font-size: 12px;
     }
-} */
+}  */

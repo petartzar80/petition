@@ -3,34 +3,24 @@
 {{/if}}
 <div class="container">
     <div class="content profile-div">
-        <div class="text-div custom-profile">
-            <div class="headline custom-profile">
-                <h1>PROFILE YOURSELF.</h1>
-            </div>
-            <!-- <div class="headline custom-profile"> -->
-                <div class="info">
-                    <p>Entertain us by providing some general information on your person.</p>
-                </div>
-            <!-- </div> -->
+        <div class="headline custom-profile">
+            <h1>PROFILE YOURSELF.</h1>
+        </div>
+        <div class="info">
+            <p>Entertain us by providing some general information on your person.</p>
         </div>
         <form method="POST" class="input-field" >
             <input type="hidden" name="_csrf" value="{{csrfToken}}">
-            <div class="text-input">
-                <div class="input custom-profile">
-                    <br>
-                    <input type="number" name="age" autocomplete="off" placeholder="AGE">
-                </div>
-                <div class="input custom-profile">
-                    <br>
-                    <input type="text" name="city" autocomplete="off" placeholder="CITY">
-                </div>
-                <div class="input custom-profile">
-                    <br>
-                    <input type="text" name="homepage" autocomplete="off" placeholder="HOMEPAGE">
-                </div>
+            <div class="input">
+                <input type="number" name="age" autocomplete="off" placeholder="AGE">
             </div>
-            <button name="button" class="submit profile-button">CONTINUE</button>
-
+            <div class="input">
+                <input type="text" name="city" autocomplete="off" placeholder="CITY">
+            </div>
+            <div class="input">
+                <input type="text" name="homepage" autocomplete="off" placeholder="HOMEPAGE">
+            </div>
+            <button name="button" class="submit profile">CONTINUE</button>
         </form>
     </div>
 

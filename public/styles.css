@@ -55,14 +55,13 @@ h1 {
 
 p {
     font-family: "Veljovic";
-    font-size: calc(16px + 0.2rem);
+    font-size: calc(10px + 0.4rem);
 }
 
 input {
     font-family: "Gotham Medium";
     font-size: calc(16px + 0.2rem);
     width: 200px;
-    /* margin: 5px 0; */
     text-align: center;
 }
 
@@ -73,13 +72,13 @@ input {
     overflow: hidden;
     border: 2px solid red;
     margin: 0 auto;
+    text-align: center;
 }
 
 .login-link {
     position: absolute;
     top: calc(5px + 1vw);
     right: calc(20px + 1vw);
-    text-align: center;
     /* margin-top: 5px; */
     border: 3px solid rgb(0, 255, 0);
     padding: 5px;
@@ -100,7 +99,21 @@ input {
     display: none;
 }
 
+.headline {
+    border: 1px solid black;
+    margin-top: 1em;
+}
+
+.info {
+    border: 2px solid black;
+    padding: 0.3em;
+}
+
 @media (max-width: 1600px) {
+    .container {
+        min-width: 90vw;
+        max-width: 90%;
+    }
     .display-top {
         display: none;
         color: blue;

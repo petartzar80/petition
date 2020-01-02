@@ -79,6 +79,7 @@ input::-webkit-input-placeholder {
 
 canvas {
     background-color: rgba(0, 0, 0, 0.7);
+    max-width: 100%;
 }
 
 li {
@@ -133,6 +134,12 @@ li {
     margin-top: 1em;
 }
 
+.info.petition {
+    max-width: 500px;
+    min-width: 130px;
+    margin: 1em auto;
+}
+
 .input-field {
     margin-top: 1em;
 }
@@ -160,6 +167,11 @@ li {
 .submit.thanks-button a {
     color: black;
     text-decoration: none;
+}
+
+.submit.petition-button {
+    max-height: 40px;
+    width: 280px;
 }
 
 .sig-img {

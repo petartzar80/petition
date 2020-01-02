@@ -84,7 +84,7 @@ canvas {
 .container {
     width: 90vw;
     max-width: 1200px;
-    height: 99vh;
+    height: 100vh;
     overflow: hidden;
     border: 2px solid red;
     margin: 0 auto;
@@ -161,7 +161,28 @@ canvas {
 }
 
 @media (max-width: 768px) {
+    input {
+        margin: 0.4em 0;
+    }
+    .container {
+        overflow: scroll;
+    }
     .login-link {
         padding-top: 2px;
+    }
+    .submit {
+        margin: 0.5em 0 0.8em 0;
+    }
+}
+
+@media (max-width: 374px) {
+    input {
+        margin: 0.3em 0;
+    }
+    .input-field {
+        margin-top: 0.7em;
+    }
+    .submit {
+        margin: 0.4em 0 0.7em 0;
     }
 }

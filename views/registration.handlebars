@@ -6,34 +6,25 @@
         <div class="login-link display-top">
             <a href="/login">LOG IN</a>
         </div>
-        <div class="text-div registration">
-            <div class="headline">
-                <h1>A PETITION AGAINST VIOLENCE TOWARDS OPPONENTS OF ARBITRARY CAUSES FOR PETITIONS</h1>
-            </div>
-            <div class="info">
-                <p>We are all aware that petitions are a serious thing - recently a petition saved captain Carola Rackete of Sea Watch from a prison sentence. Therefore, it's not strange that some people consider petitions a matter not to be played around with, especially by assigning them arbitrary causes - even if it's just for educational purposes. If you're not one of these people, you might assume they're just grumpy old men, but we ask of you to contemplate the fact that physical or psychological violence does not solve anything - it might only reinforce their rigid beliefs. To prevent future instances of unnecessary violence towards these individuals, we ask of you to consider signing this fine petition.</p>
-            </div>
+        <div class="headline">
+            <h1>A PETITION AGAINST VIOLENCE TOWARDS OPPONENTS OF ARBITRARY CAUSES FOR PETITIONS</h1>
         </div>
-        <!-- <div class="arrow-down">V V V</div> -->
+        <div class="info">
+            <p>We are all aware that petitions are a serious thing - recently a petition saved captain Carola Rackete of Sea Watch from a prison sentence. Therefore, it's not strange that some people consider petitions a matter not to be played around with, especially by assigning them arbitrary causes - even if it's just for educational purposes. If you're not one of these people, you might assume they're just grumpy old men, but we ask of you to contemplate the fact that physical or psychological violence does not solve anything - it might only reinforce their rigid beliefs. To prevent future instances of unnecessary violence towards these individuals, we ask of you to consider signing this fine petition.</p>
+        </div>
         <form method="POST" class="input-field">
             <input type="hidden" name="_csrf" value="{{csrfToken}}">
-            <div class="text-input">
-                <div class="input">
-                    <!-- <br> -->
-                    <input type="text" name="first" autocomplete="off" placeholder="FIRST NAME">
-                </div>
-                <div class="input">
-                    <!-- <br> -->
-                    <input type="text" name="last" autocomplete="off" placeholder="LAST NAME">
-                </div>
-                <div class="input">
-                    <!-- <br> -->
-                    <input type="text" name="email" autocomplete="off" placeholder="EMAIL">
-                </div>
-                <div class="input">
-                    <!-- <br> -->
-                    <input type="password" name="password" autocomplete="off" placeholder="PASSWORD">
-                </div>
+            <div class="input">
+                <input type="text" name="first" autocomplete="off" placeholder="FIRST NAME">
+            </div>
+            <div class="input">
+                <input type="text" name="last" autocomplete="off" placeholder="LAST NAME">
+            </div>
+            <div class="input">
+                <input type="text" name="email" autocomplete="off" placeholder="EMAIL">
+            </div>
+            <div class="input">
+                <input type="password" name="password" autocomplete="off" placeholder="PASSWORD">
             </div>
             <button name="button" class="submit">SIGN UP</button>
         </form>

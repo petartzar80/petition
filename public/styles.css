@@ -46,6 +46,10 @@ input[type="number"]::-webkit-outer-spin-button {
     font-weight: bold;
 }
 
+body {
+    background-image: url(/img/zid.jpg);
+}
+
 h1 {
     font-family: "Monument";
     color: rgb(0, 255, 0);
@@ -61,38 +65,50 @@ p {
 input {
     font-family: "Gotham Medium";
     font-size: calc(16px + 0.2rem);
+    color: black;
     width: 200px;
     text-align: center;
+    margin: 0.5em 0;
+    background-color: yellow;
+    border: none;
+}
+
+input::-webkit-input-placeholder {
+    color: black;
+}
+
+canvas {
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .container {
-    width: 50vw;
-    min-width: 1200px;
-    max-height: 100vh;
+    width: 90vw;
+    max-width: 1200px;
+    height: 99vh;
     overflow: hidden;
     border: 2px solid red;
     margin: 0 auto;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .login-link {
     position: absolute;
     top: calc(5px + 1vw);
     right: calc(20px + 1vw);
-    /* margin-top: 5px; */
     border: 3px solid rgb(0, 255, 0);
-    padding: 5px;
-    padding-top: 0px;
-    padding-right: 7px;
+    padding: 0px 8px 2px 5px;
 }
 
 .login-link a {
-    /* margin-top: 20px; */
     color: rgb(0, 255, 0);
-    font-size: 20px;
+    font-size: calc(16px + 0.2rem);
     font-family: "Gotham Medium";
     text-decoration: none;
     font-style: italic;
+    margin: 2px;
 }
 
 .display-bottom {
@@ -102,17 +118,35 @@ input {
 .headline {
     border: 1px solid black;
     margin-top: 1em;
+    padding: 0.3em;
 }
 
 .info {
     border: 2px solid black;
     padding: 0.3em;
+    background-color: white;
+    margin-top: 1em;
+}
+
+.input-field {
+    margin-top: 1em;
+}
+
+.submit {
+    margin: 1em 0 1.5em 0;
+    border: none;
+    background-color: white;
+    color: black;
+    width: 110px;
+    font-family: "Gotham Medium";
+    font-size: calc(16px + 0.2rem);
 }
 
 @media (max-width: 1600px) {
     .container {
-        min-width: 90vw;
-        max-width: 90%;
+        min-width: 60vw;
+        width: 90%;
+        max-width: 1200px;
     }
     .display-top {
         display: none;
@@ -123,14 +157,11 @@ input {
         position: relative;
         top: auto;
         right: auto;
-        /* margin-top: 2vh;
-        margin-bottom: 5vh;
-        padding-top: 0.8vh; */
     }
 }
 
-/* @media screen and (max-width: 575px) {
-    body {
-        font-size: 12px;
+@media (max-width: 768px) {
+    .login-link {
+        padding-top: 2px;
     }
-}  */
+}

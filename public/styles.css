@@ -45,3 +45,35 @@ input[type="number"]::-webkit-outer-spin-button {
     src: url("/fonts/Monument-Regular.otf");
     font-weight: bold;
 }
+
+h1 {
+    font-family: "Monument";
+    color: rgb(0, 255, 0);
+    font-weight: bold;
+    font-size: 1.7rem;
+}
+
+p {
+    font-family: "Veljovic";
+    font-size: calc(16px + 0.2rem);
+}
+
+input {
+    font-family: "Gotham Medium";
+    font-size: calc(16px + 0.2rem);
+    width: 200px;
+    /* margin: 5px 0; */
+    text-align: center;
+}
+
+/* @media screen and (min-width: 1600px) {
+    body {
+        font-size: 26px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    body {
+        font-size: 12px;
+    }
+} */

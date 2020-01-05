@@ -6,19 +6,18 @@
         <div class="login-link display-top">
             <a href="/logout">LOGOUT</a>
         </div>
-        <!-- <div class="text-div"> -->
+
             <div class="headline custom-signers">
                 {{#if ./extractedCity}}
                 <h1 class="signers-headline">ALL THE VIRTUOUS SIGNERS FROM {{town}}</h1>
-                <!-- <h1 class="signers-headline">ALL THE VIRTUOUS SIGNERS FROM {{town}}</h1> -->
                 {{else}}
                 <h1 class="signers-headline">ALL THE VIRTUOUS SIGNERS.</h1>
-                <div class="info signers">
-                    <p>You are in outstanding company!</p>
-                </div>
-                {{/if}}
-            </div>
 
+            </div>
+            <div class="info signers">
+                <p>You are in outstanding company!</p>
+            </div>
+            {{/if}}
             <div class="signers-div">
                 {{#rows}}
                     <ul>
@@ -43,6 +42,6 @@
             <div class="login-link display-bottom">
                 <a href="/logout">LOGOUT</a>
             </div>
-        <!-- </div> -->
+
     </div>
 </div>

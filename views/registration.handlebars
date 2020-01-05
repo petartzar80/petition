@@ -15,13 +15,13 @@
         <form method="POST" class="input-field">
             <input type="hidden" name="_csrf" value="{{csrfToken}}">
             <div class="input">
-                <input type="text" name="first" autocomplete="off" placeholder="FIRST NAME">
+                <input type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'FIRST NAME'" name="first" autocomplete="off" placeholder="FIRST NAME">
             </div>
             <div class="input">
-                <input type="text" name="last" autocomplete="off" placeholder="LAST NAME">
+                <input type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'LAST NAME'" name="last" autocomplete="off" placeholder="LAST NAME">
             </div>
             <div class="input">
-                <input type="text" name="email" autocomplete="off" placeholder="EMAIL">
+                <input type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'E-MAIL'" name="email" autocomplete="off" placeholder="E-MAIL">
             </div>
             <div class="input">
                 <input type="password" name="password" autocomplete="off" placeholder="PASSWORD">

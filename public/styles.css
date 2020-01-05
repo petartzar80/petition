@@ -64,7 +64,7 @@ p {
 
 input {
     font-family: "Gotham Medium";
-    font-size: calc(13px + 0.2rem);
+    font-size: calc(12px + 0.2rem);
     color: black;
     width: 200px;
     text-align: center;
@@ -79,8 +79,8 @@ input::-webkit-input-placeholder {
 }
 
 input:focus {
-    background-color: rgba(0, 0, 0, 0.7);
-    color: yellow;
+    /* background-color: rgba(0, 0, 0, 0.7); */
+    /* color: yellow; */
     text-align: left;
 }
 
@@ -163,7 +163,8 @@ li {
     color: black;
     width: 110px;
     font-family: "Gotham Medium";
-    font-size: calc(16px + 0.2rem);
+    /* font-size: calc(16px + 0.2rem); */
+    font-size: calc(12px + 0.2rem);
 }
 
 .submit.profile {

@@ -11,25 +11,25 @@
         </div>
             <form method="POST" class="input-field">
                 <div class="input">
-                    <input type="text" name="first" value={{first}} required autocomplete="off">
+                    <input required autocomplete="off" placeholder="FIRST NAME" onfocus="this.value = ''" onblur="this.placeholder = 'FIRST NAME'" type="text" name="first" value={{first}} >
                 </div>
                 <div class="input">
-                    <input type="text" name="last" value={{last}} required autocomplete="off">
+                    <input required autocomplete="off" placeholder="LAST NAME" onfocus="this.value = ''" onblur="this.placeholder = 'LAST NAME'" type="text" name="last" value={{last}} >
                 </div>
                 <div class="input">
-                    <input type="text" name="email" value={{email}} required autocomplete="off">
+                    <input required autocomplete="off" placeholder="E-MAIL" onfocus="this.value = ''" onblur="this.placeholder = 'E-MAIL'" type="text" name="email" value={{email}}>
                 </div>
                 <div class="input">
-                    <input type="password" name="password" value="" placeholder="PASSWORD">
+                    <input required autocomplete="off" onfocus="this.placeholder = ''" onblur="this.placeholder = 'PASSWORD'" type="password" name="password" value="" placeholder="PASSWORD">
                 </div>
                 <div class="input">
-                    <input autocomplete="off" type="text" name="age" placeholder="AGE" value={{age}}>
+                    <input onfocus="this.placeholder = ''" onblur="this.placeholder = 'AGE'" autocomplete="off" type="text" name="age" placeholder="AGE" value={{age}}>
                 </div>
                 <div class="input">
-                    <input autocomplete="off" type="text" name="city" placeholder="CITY" value={{city}}>
+                    <input onfocus="this.placeholder = ''" onblur="this.placeholder = 'CITY'" autocomplete="off" type="text" name="city" placeholder="CITY" value={{city}}>
                 </div>
                 <div class="input">
-                    <input autocomplete="off" type="text" name="page"  placeholder="HOMEPAGE"value={{page}}>
+                    <input onfocus="this.placeholder = ''" onblur="this.placeholder = 'HOMEPAGE'" autocomplete="off" type="text" name="page"  placeholder="HOMEPAGE"value={{page}}>
                 </div>
                 <input type="hidden" name="_csrf" value="{{csrfToken}}">
                 <button class="submit">UPDATE</button>

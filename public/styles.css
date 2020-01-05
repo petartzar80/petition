@@ -64,17 +64,24 @@ p {
 
 input {
     font-family: "Gotham Medium";
-    font-size: calc(16px + 0.2rem);
+    font-size: calc(13px + 0.2rem);
     color: black;
     width: 200px;
     text-align: center;
     margin: 0.5em 0;
     background-color: yellow;
     border: none;
+    padding: 0.25em 0.5em;
 }
 
 input::-webkit-input-placeholder {
     color: black;
+}
+
+input:focus {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: yellow;
+    text-align: left;
 }
 
 canvas {

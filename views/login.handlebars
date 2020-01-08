@@ -11,10 +11,10 @@
             <input type="hidden" name="_csrf" value="{{csrfToken}}">
             <div class="text-input">
                 <div class="input">
-                    <input type="text" name="email"placeholder="EMAIL" autocomplete="off">
+                    <input type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'E-MAIL'" name="email" placeholder="E-MAIL" autocomplete="off">
                 </div>
                 <div class="input">
-                    <input type="password" name="password" placeholder="PASSWORD" autocomplete="off">
+                    <input type="password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'PASSWORD'" name="password" placeholder="PASSWORD" autocomplete="off">
                 </div>
             </div>
             <button name="button" class="submit">LOG IN</button>

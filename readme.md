@@ -10,6 +10,8 @@
 
 [![Online Petition](siteflow2.gif)](http://provisionary-app.herokuapp.com/)
 
+[![Online Petition](siteflow3.gif)](http://provisionary-app.herokuapp.com/)
+
 ## Demo
 
 http://provisionary-app.herokuapp.com/
@@ -33,6 +35,8 @@ CSS, JavaScript, Handlebars.js, Canvas, Node.js / Express, PostgreSQ, Heroku
 -   Signers can see the total number of signees, basic info on other signers and filter it based on city
 
 -   Logged-in users cannot access the registration or login pages (redirection). Logged-out users can only access the registration and login
+
+-   Responsive layout
 
 ## Goals
 

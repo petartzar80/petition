@@ -79,8 +79,6 @@ input::-webkit-input-placeholder {
 }
 
 input:focus {
-    /* background-color: rgba(0, 0, 0, 0.7); */
-    /* color: yellow; */
     text-align: left;
 }
 
@@ -98,7 +96,6 @@ li {
     max-width: 1200px;
     height: 100vh;
     overflow: hidden;
-    /* border: 2px solid red; */
     margin: 0 auto;
     text-align: center;
     display: flex;
@@ -128,7 +125,6 @@ li {
 }
 
 .headline {
-    /* border: 1px solid black; */
     margin-top: 1em;
     padding: 0.3em;
     max-width: 100%;
@@ -158,12 +154,12 @@ li {
 
 .submit {
     margin: 1em 0 1.5em 0;
+    padding: 0.3em 0;
     border: none;
     background-color: white;
     color: black;
     width: 110px;
     font-family: "Gotham Medium";
-    /* font-size: calc(16px + 0.2rem); */
     font-size: calc(12px + 0.2rem);
 }
 
